@@ -4,6 +4,8 @@ import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.ishiyamasayuri.Entity.GDCEntity;
+import com.ksptooi.gdc.FileDAL.GeneralFileIO;
 import com.ksptooi.gdc.MysqlAPI.MysqlController;
 
 public class debug {
@@ -29,29 +31,45 @@ public class debug {
 		
 		MysqlController MC=new MysqlController();
 		
-		MC.loadConfigFromgdFile(new File("F:/123.gd"));
+		File file = new File("C:/123.gd");
 		
-		System.out.println(MC.tableIsExists("playertable"));
+		GeneralFileIO GF = new GeneralFileIO();
 		
-		ResultSet rs=MC.query("select * from playertable");
+		GDCEntity GE = GF.getGDCEntity(file);
 		
-		
-		try {
+		while(GE.next()){
 			
+			System.out.println(GE.get());
 			
-			while(rs.next()){
-				System.out.println(rs.getString("playername"));
-				System.out.println("不为空");
-				return;
-			}
-			
-			System.out.println("为空");
-			System.out.println("123");
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
+		
+		
+		GE.addLast("哈哈哈");
+		
+		GF.writeFile(file, GE);
+		
+		
+//		System.out.println(MC.tableIsExists("playertable"));
+//		
+//		ResultSet rs=MC.query("select * from playertable");
+//		
+//		
+//		try {
+//			
+//			
+//			while(rs.next()){
+//				System.out.println(rs.getString("playername"));
+//				System.out.println("不为空");
+//				return;
+//			}
+//			
+//			System.out.println("为空");
+//			System.out.println("123");
+//			
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 		
 		

@@ -5,14 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.ksptooi.gdc.Util.Var;
+import com.ksptooi.gdc.Main.DataCore;
 
 public class MysqlDAO {
 
 
 	public void getMysqlConnect(){
 		
-		if(Var.mysql_Conn != null){
+		if(DataCore.mysql_Conn != null){
 			return ;
 		}
 		
@@ -20,21 +20,21 @@ public class MysqlDAO {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("未能找到Mysql驱动");
+			DataCore.LogManager.sendError("未能找到Mysql驱动");
 		}
 		
 		try {
 			
-			Var.LogManager.writeLogOfINFO("连接到数据库");
-			Var.LogManager.writeLogOfINFO("URL:"+Var.mysql_URL);
+			DataCore.LogManager.sendInfo("连接到数据库");
+			DataCore.LogManager.sendInfo("URL:"+DataCore.mysql_URL);
 			
-			Var.mysql_Conn=DriverManager.getConnection(Var.mysql_URL,Var.mysql_User,Var.mysql_Pwd);
+			DataCore.mysql_Conn=DriverManager.getConnection(DataCore.mysql_URL,DataCore.mysql_User,DataCore.mysql_Pwd);
 			
-			Var.LogManager.writeLogOfINFO("数据库连接成功");
+			DataCore.LogManager.sendInfo("数据库连接成功");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("建立Mysql数据库连接时出现错误!");
+			DataCore.LogManager.sendError("建立Mysql数据库连接时出现错误!");
 		}
 		
 	}
@@ -50,14 +50,14 @@ public class MysqlDAO {
 		try {
 			
 			
-			stm=Var.mysql_Conn.createStatement();
+			stm=DataCore.mysql_Conn.createStatement();
 			rs=stm.executeQuery(sql_Query);
 			
 			return rs;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("Mysql数据库错误! - createStatement - query");
+			DataCore.LogManager.sendError("Mysql数据库错误! - createStatement - query");
 		}
 		
 		return null;
@@ -73,14 +73,14 @@ public class MysqlDAO {
 		try {
 			
 			
-			stm=Var.mysql_Conn.createStatement();
+			stm=DataCore.mysql_Conn.createStatement();
 			stm.executeUpdate(sql_Update);
 			
 			stm.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("Mysql数据库错误! - createStatement - query");
+			DataCore.LogManager.sendError("Mysql数据库错误! - createStatement - query");
 		}
 		
 		

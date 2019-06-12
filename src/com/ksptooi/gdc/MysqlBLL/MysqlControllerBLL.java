@@ -5,9 +5,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.ksptooi.gdc.FileAPI.IOController_V5;
+import com.ksptooi.gdc.File.Manager.IOController_V5;
+import com.ksptooi.gdc.Main.DataCore;
 import com.ksptooi.gdc.MysqlDAL.MysqlDAO;
-import com.ksptooi.gdc.Util.Var;
 
 public class MysqlControllerBLL {
 
@@ -26,7 +26,7 @@ public class MysqlControllerBLL {
 	//从文件中加载Mysql连接信息
 	public void loadConfigFromgdFile_MysqlBLL(File File){
 		
-		Var.LogManager.writeLogOfINFO("从配置文件读取数据库信息");
+		DataCore.LogManager.sendInfo("从配置文件读取数据库信息");
 		
 		String MysqlAddress=null;
 		String DataBaseName=null;
@@ -45,34 +45,34 @@ public class MysqlControllerBLL {
 		
 		//检查加载是否成功
 		if(MysqlAddress == null){
-			Var.LogManager.writeLogOfError("从配置文件读取数据库信息时错误! - 未找到Key:MysqlAddress");
+			DataCore.LogManager.sendError("从配置文件读取数据库信息时错误! - 未找到Key:MysqlAddress");
 			System.exit(0);
 		}
 		
 		if(DataBaseName == null){
-			Var.LogManager.writeLogOfError("从配置文件读取数据库信息时错误! - 未找到Key:DataBaseName");
+			DataCore.LogManager.sendError("从配置文件读取数据库信息时错误! - 未找到Key:DataBaseName");
 			System.exit(0);
 		}
 		
 		if(MysqlUser == null){
-			Var.LogManager.writeLogOfError("从配置文件读取数据库信息时错误! - 未找到Key:MysqlUser");
+			DataCore.LogManager.sendError("从配置文件读取数据库信息时错误! - 未找到Key:MysqlUser");
 			System.exit(0);
 		}
 		
 		if(MysqlPwd == null){
-			Var.LogManager.writeLogOfError("从配置文件读取数据库信息时错误! - 未找到Key:MysqlPwd");
+			DataCore.LogManager.sendError("从配置文件读取数据库信息时错误! - 未找到Key:MysqlPwd");
 			System.exit(0);
 		}
 		
 		if(Param == null){
-			Var.LogManager.writeLogOfError("从配置文件读取数据库信息时错误! - 未找到Key:Param");
+			DataCore.LogManager.sendError("从配置文件读取数据库信息时错误! - 未找到Key:Param");
 			System.exit(0);
 		}
 		
 		
-		Var.mysql_URL="jdbc:mysql://"+MysqlAddress+"/"+DataBaseName+Param;
-		Var.mysql_User=MysqlUser;
-		Var.mysql_Pwd=MysqlPwd;
+		DataCore.mysql_URL="jdbc:mysql://"+MysqlAddress+"/"+DataBaseName+Param;
+		DataCore.mysql_User=MysqlUser;
+		DataCore.mysql_Pwd=MysqlPwd;
 		
 	}
 	
@@ -104,7 +104,7 @@ public class MysqlControllerBLL {
 		
 		try {
 			
-			ResultSet rs=Var.mysql_Conn.getMetaData().getTables(null, null, TableName, null);
+			ResultSet rs=DataCore.mysql_Conn.getMetaData().getTables(null, null, TableName, null);
 			
 	         if (rs.next()) {  
 	               return true;  
@@ -115,7 +115,7 @@ public class MysqlControllerBLL {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("数据库连接错误！");
+			DataCore.LogManager.sendError("数据库连接错误！");
 		}
 		
 		
@@ -128,7 +128,7 @@ public class MysqlControllerBLL {
 		
 		MD.getMysqlConnect();
 		
-		return Var.mysql_Conn;
+		return DataCore.mysql_Conn;
 	}
 		
 	

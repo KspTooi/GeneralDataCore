@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import com.ksptooi.gdc.Util.Var;
+import com.ksptooi.gdc.Main.DataCore;
 
 
 public class FileDAL_Input {
@@ -44,7 +44,7 @@ public class FileDAL_Input {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("文件系统错误 at getFileKey");
+			DataCore.LogManager.sendError("文件系统错误 at getFileKey");
 		}
 		
 		
@@ -75,7 +75,7 @@ public class FileDAL_Input {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("文件系统错误 at getFileContent");
+			DataCore.LogManager.sendError("文件系统错误 at getFileContent");
 			
 		}
 			
@@ -106,8 +106,8 @@ public class FileDAL_Input {
 				
 			
 		}catch(Exception e){
-			e.printStackTrace();
-			Var.LogManager.writeLogOfError("文件系统错误 at getFileContent");
+			e.printStackTrace();./;
+			DataCore.LogManager.sendError("文件系统错误 at getFileContent");
 		}
 			
 		
@@ -143,7 +143,7 @@ public class FileDAL_Input {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("文件系统错误 at getFileKey");
+			DataCore.LogManager.sendError("文件系统错误 at getFileKey");
 		}
 		
 		

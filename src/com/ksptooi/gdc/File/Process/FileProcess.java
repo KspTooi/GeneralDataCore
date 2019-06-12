@@ -1,4 +1,4 @@
-package com.ksptooi.gdc.FileBLL;
+package com.ksptooi.gdc.File.Process;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,21 +6,21 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import com.ksptooi.gdc.FileDAL.FileDAL_Input;
 import com.ksptooi.gdc.FileDAL.FileDAL_OutPut;
-import com.ksptooi.gdc.Util.Var;
+import com.ksptooi.gdc.Main.DataCore;
 
-public class FileControllerBLL{
+public class FileProcess{
 
 	FileDAL_Input fileDAL_Input=null;
 	FileDAL_OutPut fileDAL_OutPut=null;
 	
-	public FileControllerBLL(){
+	public FileProcess(){
 		fileDAL_Input=new FileDAL_Input();
 		fileDAL_OutPut=new FileDAL_OutPut();
 	}
 	
 	
 	//获取文件中Key值的内容
-	public String getKeyValue_FileBLL(File File,String Key,String SeparationSymbol){
+	public String getKeyValueProcess(File File,String Key,String SeparationSymbol){
 	
 		String result=null;
 		
@@ -48,17 +48,17 @@ public class FileControllerBLL{
 	
 	
 	//设置文件中Key值的内容
-	public void setKeyValue_FileBLL(File File,String Key,String Value,String SeparationSymbol){
+	public void setKeyValueProcess(File File,String Key,String Value,String SeparationSymbol){
 		
 		//判断文件是否为空
 		if(File == null){
-			Var.LogManager.writeLogOfError("文件系统错误 - Target为null");
+			DataCore.LogManager.sendError("文件系统错误 - Target为null");
 			return;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			Var.LogManager.writeLogOfError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
 			return;
 		}
 		
@@ -70,17 +70,17 @@ public class FileControllerBLL{
 	
 	
 	//覆盖写入
-	public void setFileContent_FileBLL(File File,String Content){
+	public void setFileContentProcess(File File,String Content){
 		
 		//判断文件是否为空
 		if(File == null){
-			Var.LogManager.writeLogOfError("文件系统错误 - Target为null");
+			DataCore.LogManager.sendError("文件系统错误 - Target为null");
 			return;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			Var.LogManager.writeLogOfError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
 			return;
 		}
 		
@@ -90,19 +90,19 @@ public class FileControllerBLL{
 	
 	
 	//返回文件中有多少行与Match相同的字符串
-	public int getRepeatLineCount_FileBLL(File File,String Match){
+	public int getRepeatLineCountProcess(File File,String Match){
 		
 		ArrayList<String> List=null;
 		
 		//判断文件是否为空
 		if(File == null){
-			Var.LogManager.writeLogOfError("文件系统错误 - Target为null");
+			DataCore.LogManager.sendError("文件系统错误 - Target为null");
 			return -1;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			Var.LogManager.writeLogOfError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
 			return -1;
 		}
 		
@@ -126,7 +126,7 @@ public class FileControllerBLL{
 	}
 	
 	//获取文件中的所有内容
-	public String getFileContent_FileBLL(File File){
+	public String getFileContentProcess(File File){
 		
 		//判断文件是否为空
 		if(File == null){
@@ -144,17 +144,17 @@ public class FileControllerBLL{
 	}
 	
 	//向文件中添加一行内容
-	public void addLine_FileBLL(File File,String Content){
+	public void addLineProcess(File File,String Content){
 		
 		//判断文件是否为空
 		if(File == null){
-			Var.LogManager.writeLogOfError("文件系统错误 - Target为null");
+			DataCore.LogManager.sendError("文件系统错误 - Target为null");
 			return;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			Var.LogManager.writeLogOfError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
 			return;
 		}
 		
@@ -166,7 +166,7 @@ public class FileControllerBLL{
 	
 	
 	//创建一个新的gdc文件
-	public boolean createNewGdcFile_BLL(File File){
+	public boolean createNewGdcFileProcess(File File){
 		
 		if(File.exists()){
 			return false;
@@ -177,14 +177,14 @@ public class FileControllerBLL{
 				
 			File.getParentFile().mkdirs();
 			File.createNewFile();
-			this.addLine_FileBLL(File, "@LineType=GeneralDataCore");
-			this.addLine_FileBLL(File, "@LineVersion=V5");
-			this.addLine_FileBLL(File, "@KeySeparationSymbol==");
-			this.addLine_FileBLL(File, "#	");
+			this.addLineProcess(File, "@LineType=GeneralDataCore");
+			this.addLineProcess(File, "@LineVersion=V5");
+			this.addLineProcess(File, "@KeySeparationSymbol==");
+			this.addLineProcess(File, "#	");
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("严重·出现未知的文件系统错误！- createNewGdcFile_BLL");
+			DataCore.LogManager.sendError("严重·出现未知的文件系统错误！- createNewGdcFile_BLL");
 			return false;
 		}
 		
@@ -193,7 +193,7 @@ public class FileControllerBLL{
 	}
 
 
-	public String getKeyValueOfInputStream_FileBLL(InputStream is, String key, String separationSymbol) {
+	public String getKeyValueOfInputStreamProcess(InputStream is, String key, String separationSymbol) {
 		
 		
 		String result=null;		

@@ -2,8 +2,7 @@ package com.ksptooi.gdc.FileDAL;
 
 import java.io.File;
 import java.io.PrintWriter;
-
-import com.ksptooi.gdc.Util.Var;
+import com.ksptooi.gdc.Main.DataCore;
 
 public class FileDAL_OutPut {
 
@@ -27,22 +26,19 @@ public class FileDAL_OutPut {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			Var.LogManager.writeLogOfError("文件系统错误 at writeToFile");
+			DataCore.LogManager.sendError("文件系统错误 at writeToFile");
 		}
 		
 		return false;
 		
 	}
 	
-	
 	//将指定内容添加到文件中
 	public boolean addToFile(File File,String addContent){
-		
 		
 		String fileOldContent=null;
 		
 		String fileNewContent=addContent;
-		
 			
 		fileOldContent=inpDAL.getFileContent(File);
 			
@@ -50,7 +46,6 @@ public class FileDAL_OutPut {
 		if(this.writeToFile(File, fileOldContent+fileNewContent)==true){
 			return true;
 		}
-
 			
 		return false;
 
@@ -73,8 +68,8 @@ public class FileDAL_OutPut {
 			this.writeToFile(File, allContent.replace(oldKeyLine, newKeyLine));
 			
 		}catch (NullPointerException e){
-			Var.LogManager.writeLogOfError("文件系统错误! - Key未找到("+Key+") - modifyKeyValue");
-			Var.LogManager.writeLogOfWarning("未能执行文件更新");
+			DataCore.LogManager.sendError("文件系统错误! - Key未找到("+Key+") - modifyKeyValue");
+			DataCore.LogManager.sendWarning("未能执行文件更新");
 		}
 		
 		
