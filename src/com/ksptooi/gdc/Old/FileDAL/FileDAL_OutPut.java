@@ -1,7 +1,8 @@
-package com.ksptooi.gdc.FileDAL;
+package com.ksptooi.gdc.Old.FileDAL;
 
 import java.io.File;
 import java.io.PrintWriter;
+
 import com.ksptooi.gdc.Main.DataCore;
 
 public class FileDAL_OutPut {

@@ -1,4 +1,4 @@
-package com.ishiyamasayuri.Entity;
+package com.ishiyamasayuri.gdc.Entity;
 
 import java.util.ArrayList;
 
@@ -30,14 +30,21 @@ public class GDCEntity {
 		
 	}
 	
-	
-	//获取当前
+	//获取当前(索引)
 	public String get(){
 			
 		return Content.get(index-1);
 		
 	}
 	
+	//设置当前(索引)
+	public void set(String str){
+		Content.set(index, str);
+	}
+	
+	
+	
+	//取第一行内容
 	public String getFirst(){
 		index++;
 		return Content.get(0);
@@ -53,5 +60,15 @@ public class GDCEntity {
 		index = 0;
 	}
 	
+	//判断数据是否为空
+	public boolean isNull(){
+		
+		if(Content.size()<1){
+			return true;
+		}
+		
+		return false;
+		
+	}
 	
 }

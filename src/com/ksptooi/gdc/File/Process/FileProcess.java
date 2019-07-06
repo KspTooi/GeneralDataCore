@@ -3,26 +3,24 @@ package com.ksptooi.gdc.File.Process;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import com.ksptooi.gdc.FileDAL.FileDAL_Input;
-import com.ksptooi.gdc.FileDAL.FileDAL_OutPut;
+
+import com.ishiyamasayuri.gdc.Entity.GDCEntity;
+import com.ksptooi.gdc.FileDAL.GeneralFileIO;
 import com.ksptooi.gdc.Main.DataCore;
 
 public class FileProcess{
 
-	FileDAL_Input fileDAL_Input=null;
-	FileDAL_OutPut fileDAL_OutPut=null;
+	GeneralFileIO GFI=new GeneralFileIO();
 	
 	public FileProcess(){
-		fileDAL_Input=new FileDAL_Input();
-		fileDAL_OutPut=new FileDAL_OutPut();
+		GFI=new GeneralFileIO();
 	}
 	
 	
 	//获取文件中Key值的内容
 	public String getKeyValueProcess(File File,String Key,String SeparationSymbol){
 	
-		String result=null;
+		GDCEntity GDCE= null;
 		
 		//判断文件是否为空
 		if(File == null){
@@ -34,15 +32,19 @@ public class FileProcess{
 			return "File not found";
 		}
 		
+		//获取GDC实体
+		GDCE = GFI.getGDCEntity(File);
 		
-		result=fileDAL_Input.getFileKeyLine(File, Key,SeparationSymbol);
 		
-		
-		if(result == null){
-			return null;
+		while(GDCE.next()){
+						
+			if(GDCE.get().contains(Key+SeparationSymbol)){
+				return GDCE.get().replace(Key+SeparationSymbol, "");
+			}		
+			
 		}
 		
-		return result.replace(Key+SeparationSymbol, "");
+		return null;
 		
 	}
 	
@@ -62,8 +64,25 @@ public class FileProcess{
 			return;
 		}
 		
+		GDCEntity GDCE= null;
 		
-		fileDAL_OutPut.modifyKeyValue(File, Key, Value,SeparationSymbol);
+		
+		//获取GDC实体
+		GDCE = GFI.getGDCEntity(File);
+		
+		
+		while(GDCE.next()){
+			
+			if(GDCE.get().contains(Key+SeparationSymbol)){
+				
+				GDCE.set(Key+SeparationSymbol+Value);
+				
+			}
+			
+			
+		}
+		
+		GFI.writeFile(File, GDCE);
 		
 		
 	}
@@ -80,11 +99,12 @@ public class FileProcess{
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setFileContentProcess");
 			return;
 		}
 		
-		fileDAL_OutPut.writeToFile(File, Content);
+		
+		GFI.writeFile(File, Content);
 		
 	}
 	
@@ -92,7 +112,7 @@ public class FileProcess{
 	//返回文件中有多少行与Match相同的字符串
 	public int getRepeatLineCountProcess(File File,String Match){
 		
-		ArrayList<String> List=null;
+		GDCEntity GDCE = null;
 		
 		//判断文件是否为空
 		if(File == null){
@@ -107,16 +127,17 @@ public class FileProcess{
 		}
 		
 		
-		List = fileDAL_Input.getFileContentList(File);
+		GDCE = GFI.getGDCEntity(File);
 		
 		int count=0;
 		
 		
-		for(String str:List){
-			
-			if(str.equals(Match)){
+		
+		while(GDCE.next()){
+					
+			if(GDCE.get().equals(Match)){
 				count++;
-			}
+			}	
 			
 		}
 		
@@ -128,6 +149,9 @@ public class FileProcess{
 	//获取文件中的所有内容
 	public String getFileContentProcess(File File){
 		
+		GDCEntity GDCE = null;
+		String Result="";
+		
 		//判断文件是否为空
 		if(File == null){
 			return "File Is Null";
@@ -138,8 +162,17 @@ public class FileProcess{
 			return "File not found";
 		}
 		
+		GDCE=GFI.getGDCEntity(File);
 		
-		return fileDAL_Input.getFileContent(File);
+		
+		Result = GDCE.getFirst();
+		
+		while(GDCE.next()){
+			Result=Result + "\r\n" +GDCE.get();
+		}
+		
+		
+		return Result;
 		
 	}
 	
@@ -158,8 +191,20 @@ public class FileProcess{
 			return;
 		}
 		
+		GDCEntity GDCE = null;
 		
-		fileDAL_OutPut.addToFile(File,  "\r\n" +Content + "\r\n");
+		GDCE=GFI.getGDCEntity(File);
+		
+		GDCE.addLast(Content);
+		
+		GDCE.reset();
+		
+		while(GDCE.next()){
+			System.out.println("||"+GDCE.get());
+		}
+		
+		
+		GFI.writeFile(File, GDCE);
 		
 	}
 	
@@ -199,7 +244,7 @@ public class FileProcess{
 		String result=null;		
 		
 		
-		result=fileDAL_Input.getFileKeyLineOfInputStream(is, key,separationSymbol);
+		result=GFI.getFileKeyLineOfInputStream(is, key,separationSymbol);
 		
 		
 		if(result == null){

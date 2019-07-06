@@ -1,7 +1,6 @@
 package com.ksptooi.gdc.File.Manager;
 
-public class FileManager extends IOController_V5{
-
+public class DataManager extends IOController_V5{
 	
 	
 	

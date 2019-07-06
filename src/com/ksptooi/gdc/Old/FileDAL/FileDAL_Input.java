@@ -1,4 +1,4 @@
-package com.ksptooi.gdc.FileDAL;
+package com.ksptooi.gdc.Old.FileDAL;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -106,7 +106,7 @@ public class FileDAL_Input {
 				
 			
 		}catch(Exception e){
-			e.printStackTrace();./;
+			e.printStackTrace();
 			DataCore.LogManager.sendError("文件系统错误 at getFileContent");
 		}
 			

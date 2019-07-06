@@ -6,7 +6,7 @@ import com.ksptooi.gdc.Log.LogManager;
 public class DataCore {
 
 	
-	public static final String gdc_Version="V5.1-D";
+	public static final String gdc_Version="V6.1-A";
 	
 	
 	public static LogManager LogManager=new LogManager();
@@ -20,11 +20,9 @@ public class DataCore {
 	public static String mysql_Pwd="#";
 	
 	
-	
 	public static String getVersion() {
 		return gdc_Version;
 	}
-	
 	
 	
 }

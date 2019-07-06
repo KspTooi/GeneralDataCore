@@ -4,7 +4,8 @@ import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.ishiyamasayuri.Entity.GDCEntity;
+import com.ishiyamasayuri.gdc.Entity.GDCEntity;
+import com.ksptooi.gdc.File.Manager.DataManager;
 import com.ksptooi.gdc.FileDAL.GeneralFileIO;
 import com.ksptooi.gdc.MysqlAPI.MysqlController;
 
@@ -33,21 +34,19 @@ public class debug {
 		
 		File file = new File("C:/123.gd");
 		
+		DataManager V6 = new DataManager();
+		
 		GeneralFileIO GF = new GeneralFileIO();
 		
 		GDCEntity GE = GF.getGDCEntity(file);
 		
-		while(GE.next()){
-			
-			System.out.println(GE.get());
-			
-		}
+		V6.setTarget(file);
 		
 		
-		GE.addLast("ЙўЙўЙў");
+		V6.setFileContent("122");
 		
-		GF.writeFile(file, GE);
 		
+		System.out.println(V6.getFileContent());
 		
 //		System.out.println(MC.tableIsExists("playertable"));
 //		
@@ -65,12 +64,11 @@ public class debug {
 //			
 //			System.out.println("ЮЊПе");
 //			System.out.println("123");
-//			
+//			 
 //			
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		}
-		
 		
 		
 	}
