@@ -9,7 +9,7 @@ public class BukkitSupport extends JavaPlugin{
 	
 	public void onEnable(){
 		
-		DataCore.LogManager.sendInfo("通用数据核心 版本:"+DataCore.gdc_Version);
+		DataCore.LogManager.logInfo("通用数据核心 版本:"+DataCore.gdc_Version);
 		
 	}
 	

@@ -1,4 +1,4 @@
-package com.ksptooi.gdc.Old.FileDAL;
+package com.ksptooi.gdc.v5.FileDAL;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -27,7 +27,7 @@ public class FileDAL_OutPut {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at writeToFile");
+			DataCore.LogManager.logError("文件系统错误 at writeToFile");
 		}
 		
 		return false;
@@ -69,8 +69,8 @@ public class FileDAL_OutPut {
 			this.writeToFile(File, allContent.replace(oldKeyLine, newKeyLine));
 			
 		}catch (NullPointerException e){
-			DataCore.LogManager.sendError("文件系统错误! - Key未找到("+Key+") - modifyKeyValue");
-			DataCore.LogManager.sendWarning("未能执行文件更新");
+			DataCore.LogManager.logError("文件系统错误! - Key未找到("+Key+") - modifyKeyValue");
+			DataCore.LogManager.logWarning("未能执行文件更新");
 		}
 		
 		

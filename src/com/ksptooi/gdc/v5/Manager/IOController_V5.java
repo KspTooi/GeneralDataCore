@@ -1,4 +1,4 @@
-package com.ksptooi.gdc.File.Manager;
+package com.ksptooi.gdc.v5.Manager;
 
 import java.io.File;
 import java.io.InputStream;
@@ -34,7 +34,7 @@ public class IOController_V5 {
 
 	
 	public String test(){
-		DataCore.LogManager.sendInfo("°æ±¾:"+DataCore.gdc_Version);
+		DataCore.LogManager.logInfo("°æ±¾:"+DataCore.gdc_Version);
 		return DataCore.gdc_Version;
 	}
 	

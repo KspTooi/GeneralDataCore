@@ -3,8 +3,7 @@ package com.ksptooi.gdc.File.Process;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-
-import com.ishiyamasayuri.gdc.Entity.GDCEntity;
+import com.ksptooi.gdc.Entity.GDCEntity;
 import com.ksptooi.gdc.FileDAL.GeneralFileIO;
 import com.ksptooi.gdc.Main.DataCore;
 
@@ -15,6 +14,110 @@ public class FileProcess{
 	public FileProcess(){
 		GFI=new GeneralFileIO();
 	}
+	
+	
+	//删除一个key
+	public void removeProcess(File Target,String key) {
+		
+		//判断文件是否为空
+		if(Target == null){
+			DataCore.LogManager.logError("文件系统错误:没有设置Target");
+			return;
+		}
+		
+		//判断文件是否存在
+		if( ! Target.exists()){
+			DataCore.LogManager.logError("文件系统错误:文件未找到:putProcess");
+			return;
+		}
+		
+		GDCEntity GDCE=GFI.getGDCEntity(Target);
+		
+		while(GDCE.next()){
+			
+			
+			if(GDCE.get().split("=")[0].equals(key)){
+				GDCE.remove();
+				break;
+			}		
+			
+		}
+		
+		GFI.writeGDCEntity(Target, GDCE);
+		
+		
+	}
+	
+	
+	
+	
+	//添加新的key
+	public void putProcess(File Target,String key,String value,String SeparationSymbol) {
+		
+		//判断文件是否为空
+		if(Target == null){
+			DataCore.LogManager.logError("文件系统错误:没有设置Target");
+			return;
+		}
+		
+		//判断文件是否存在
+		if( ! Target.exists()){
+			DataCore.LogManager.logError("文件系统错误:文件未找到:putProcess");
+			return;
+		}
+		
+		
+		GDCEntity GDCE=GFI.getGDCEntity(Target);
+		
+		GDCE.addLast(key+SeparationSymbol+value);
+		
+		GFI.writeGDCEntity(Target, GDCE);
+		
+	}
+	
+	
+	
+	
+	//获取文件中Key值的内容 转换为Double
+	public double getKeyValueForDoubleProcess(File File,String Key,String SeparationSymbol) {
+		
+		
+		String KV = this.getKeyValueProcess(File, Key, SeparationSymbol);
+		
+		try {
+			
+			double Double_kv = Double.valueOf(KV);
+			return Double_kv;	
+			
+		}catch(Exception e) {
+			DataCore.LogManager.logError("文件系统错误:key:"+KV+" 无法转换为int");
+			return -2147483647;
+		}
+		
+		
+	}
+	
+	
+	//获取文件中Key值的内容 转换为int
+	public int getKeyValueForIntProcess(File File,String Key,String SeparationSymbol) {
+		
+		
+		String KV = this.getKeyValueProcess(File, Key, SeparationSymbol);
+		
+		try {
+			
+			int int_kv = new Integer(KV);
+			return int_kv;	
+			
+		}catch(Exception e) {
+			DataCore.LogManager.logError("文件系统错误:key:"+KV+" 无法转换为int");
+			return -2147483647;
+		}
+		
+		
+	}
+	
+	
 	
 	
 	//获取文件中Key值的内容
@@ -54,13 +157,13 @@ public class FileProcess{
 		
 		//判断文件是否为空
 		if(File == null){
-			DataCore.LogManager.sendError("文件系统错误 - Target为null");
+			DataCore.LogManager.logError("文件系统错误:没有设置Target");
 			return;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.logError("文件系统错误:文件未找到:setKeyValueProcess");
 			return;
 		}
 		
@@ -82,7 +185,7 @@ public class FileProcess{
 			
 		}
 		
-		GFI.writeFile(File, GDCE);
+		GFI.writeGDCEntity(File, GDCE);
 		
 		
 	}
@@ -93,13 +196,13 @@ public class FileProcess{
 		
 		//判断文件是否为空
 		if(File == null){
-			DataCore.LogManager.sendError("文件系统错误 - Target为null");
+			DataCore.LogManager.logError("文件系统错误:没有设置Target");
 			return;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setFileContentProcess");
+			DataCore.LogManager.logError("文件系统错误:文件未找到:setFileContentProcess");
 			return;
 		}
 		
@@ -116,13 +219,13 @@ public class FileProcess{
 		
 		//判断文件是否为空
 		if(File == null){
-			DataCore.LogManager.sendError("文件系统错误 - Target为null");
+			DataCore.LogManager.logError("文件系统错误:没有设置Target");
 			return -1;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.logError("文件系统错误:文件未找到:getRepeatLineCountProcess");
 			return -1;
 		}
 		
@@ -181,13 +284,13 @@ public class FileProcess{
 		
 		//判断文件是否为空
 		if(File == null){
-			DataCore.LogManager.sendError("文件系统错误 - Target为null");
+			DataCore.LogManager.logError("文件系统错误:没有设置Target");
 			return;
 		}
 		
 		//判断文件是否存在
 		if( ! File.exists()){
-			DataCore.LogManager.sendError("文件系统错误 - 文件未找到  - setKeyValue_FileBLL");
+			DataCore.LogManager.logError("文件系统错误:文件未找到:addLineProcess");
 			return;
 		}
 		
@@ -204,7 +307,7 @@ public class FileProcess{
 		}
 		
 		
-		GFI.writeFile(File, GDCE);
+		GFI.writeGDCEntity(File, GDCE);
 		
 	}
 	
@@ -229,7 +332,7 @@ public class FileProcess{
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-			DataCore.LogManager.sendError("严重·出现未知的文件系统错误！- createNewGdcFile_BLL");
+			DataCore.LogManager.logError("严重·出现未知的文件系统错误！- createNewGdcFileProcess");
 			return false;
 		}
 		
@@ -255,12 +358,6 @@ public class FileProcess{
 		
 		
 	}
-	
-	
-
-	
-	
-	
 	
 	
 }

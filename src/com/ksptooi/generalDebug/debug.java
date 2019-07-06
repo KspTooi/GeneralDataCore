@@ -4,10 +4,10 @@ import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.ishiyamasayuri.gdc.Entity.GDCEntity;
-import com.ksptooi.gdc.File.Manager.DataManager;
+import com.ksptooi.gdc.Entity.GDCEntity;
 import com.ksptooi.gdc.FileDAL.GeneralFileIO;
-import com.ksptooi.gdc.MysqlAPI.MysqlController;
+import com.ksptooi.gdc.v5.MysqlAPI.MysqlController;
+import com.ksptooi.gdc.v6.Manager.DataManager;
 
 public class debug {
 
@@ -36,39 +36,14 @@ public class debug {
 		
 		DataManager V6 = new DataManager();
 		
-		GeneralFileIO GF = new GeneralFileIO();
-		
-		GDCEntity GE = GF.getGDCEntity(file);
+		V6.createGdc(file);
 		
 		V6.setTarget(file);
 		
+		V6.remove("通用数据核心");
 		
-		V6.setFileContent("122");
+		System.out.println(V6.getKeyForInt("a1"));
 		
-		
-		System.out.println(V6.getFileContent());
-		
-//		System.out.println(MC.tableIsExists("playertable"));
-//		
-//		ResultSet rs=MC.query("select * from playertable");
-//		
-//		
-//		try {
-//			
-//			
-//			while(rs.next()){
-//				System.out.println(rs.getString("playername"));
-//				System.out.println("不为空");
-//				return;
-//			}
-//			
-//			System.out.println("为空");
-//			System.out.println("123");
-//			 
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
 		
 		
 	}

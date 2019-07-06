@@ -1,4 +1,4 @@
-package com.ksptooi.gdc.Old.FileDAL;
+package com.ksptooi.gdc.v5.FileDAL;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -44,7 +44,7 @@ public class FileDAL_Input {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at getFileKey");
+			DataCore.LogManager.logError("文件系统错误 at getFileKey");
 		}
 		
 		
@@ -75,7 +75,7 @@ public class FileDAL_Input {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at getFileContent");
+			DataCore.LogManager.logError("文件系统错误 at getFileContent");
 			
 		}
 			
@@ -107,7 +107,7 @@ public class FileDAL_Input {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at getFileContent");
+			DataCore.LogManager.logError("文件系统错误 at getFileContent");
 		}
 			
 		
@@ -143,7 +143,7 @@ public class FileDAL_Input {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at getFileKey");
+			DataCore.LogManager.logError("文件系统错误 at getFileKey");
 		}
 		
 		

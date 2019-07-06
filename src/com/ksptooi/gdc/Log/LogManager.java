@@ -1,24 +1,31 @@
 package com.ksptooi.gdc.Log;
 
-import com.ksptooi.gdc.Main.DataCore;
 
-public class LogManager {
 
+public abstract class LogManager{
+
+	
+	String Prefix="Prefix_example";
+
+	
 	//发送一般信息
-	public void sendInfo(String Message){
-		System.out.println("[GeneralDataCore"+DataCore.gdc_Version+"]·"+Message);
-	}
+	public abstract void logInfo(String Message);
 	
 	//发送警告信息
-	public void sendWarning(String Message){
-		System.out.println("[GeneralDataCore"+DataCore.gdc_Version+"]警告:"+Message);
-	}
+	public abstract void logWarning(String Message);
 	
 	//发送错误信息
-	public void sendError(String Message){
-		System.out.println("[GeneralDataCore"+DataCore.gdc_Version+"]错误:"+Message);
-	}
+	public abstract void logError(String Message);
 	
+	
+	
+	public String getPrefix() {
+		return Prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		Prefix = prefix;
+	}
 	
 	
 }

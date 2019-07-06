@@ -1,4 +1,4 @@
-package com.ishiyamasayuri.gdc.Entity;
+package com.ksptooi.gdc.Entity;
 
 import java.util.ArrayList;
 

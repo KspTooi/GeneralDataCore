@@ -1,4 +1,4 @@
-package com.ishiyamasayuri.gdc.Entity;
+package com.ksptooi.gdc.Entity;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,6 @@ public class GDCEntity {
 		
 	}
 	
-	
 	//下一个光标
 	public boolean next(){
 
@@ -30,6 +29,15 @@ public class GDCEntity {
 		
 	}
 	
+	//删除当前
+	public void remove() {
+		
+		Content.remove(index -1);
+		index = index -1;
+		
+	}
+	
+	
 	//获取当前(索引)
 	public String get(){
 			
@@ -39,7 +47,7 @@ public class GDCEntity {
 	
 	//设置当前(索引)
 	public void set(String str){
-		Content.set(index, str);
+		Content.set(index-1, str);
 	}
 	
 	

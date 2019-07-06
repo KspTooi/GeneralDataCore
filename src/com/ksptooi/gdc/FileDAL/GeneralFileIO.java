@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import com.ishiyamasayuri.gdc.Entity.GDCEntity;
+import com.ksptooi.gdc.Entity.GDCEntity;
 import com.ksptooi.gdc.Main.DataCore;
 
 public class GeneralFileIO {
@@ -38,7 +38,7 @@ public class GeneralFileIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at getFileContent");
+			DataCore.LogManager.logError("文件系统错误 at getFileContent");
 		}
 			
 		
@@ -48,7 +48,7 @@ public class GeneralFileIO {
 	
 	
 	//写GDC实体至文件
-	public void writeFile(File file,GDCEntity entity){
+	public void writeGDCEntity(File file,GDCEntity entity){
 		
 		entity.reset();
 		
@@ -74,7 +74,7 @@ public class GeneralFileIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at writeToFile");
+			DataCore.LogManager.logError("文件系统错误 at writeToFile");
 		}	
 		
 	}
@@ -96,7 +96,7 @@ public class GeneralFileIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at writeToFile");
+			DataCore.LogManager.logError("文件系统错误 at writeToFile");
 		}	
 		
 		
@@ -128,7 +128,7 @@ public class GeneralFileIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.sendError("文件系统错误 at getFileKey");
+			DataCore.LogManager.logError("文件系统错误 at getFileKey");
 		}
 		
 		

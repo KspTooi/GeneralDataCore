@@ -2,14 +2,14 @@ package com.ksptooi.gdc.Main;
 
 import java.sql.Connection;
 import com.ksptooi.gdc.Log.LogManager;
+import com.ksptooi.gdc.Log.gdcLog;
 
 public class DataCore {
 
 	
-	public static final String gdc_Version="V6.1-A";
+	public static final String gdc_Version="V6.1-C";
 	
-	
-	public static LogManager LogManager=new LogManager();
+	public static LogManager LogManager=new gdcLog();
 	
 	public static Connection mysql_Conn=null;
 	
