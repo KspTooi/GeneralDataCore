@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
 import com.ksptooi.gdc.Entity.GDCEntity;
 import com.ksptooi.gdc.Main.DataCore;
 import com.ksptooi.gdc.Main.gdcList;
@@ -17,8 +16,6 @@ public class FileProcess{
 	public FileProcess(){
 		GFI=new GeneralFileIO();
 	}
-	
-	
 	
 	
 	
@@ -54,7 +51,6 @@ public class FileProcess{
 			
 		
 	}
-	
 	
 	
 	
@@ -406,6 +402,7 @@ public class FileProcess{
 			return false;
 		}
 		
+
 		
 		try {
 				

@@ -1,14 +1,22 @@
 package com.ksptooi.generalDebug;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ksptooi.gdc.Main.gdcList;
 import com.ksptooi.gdc.v6.Manager.DataManager;
+import com.ksptooi.gdc.v6.Manager.SqlSessionFactory;
+import com.ksptooi.gdc.v6.Mysql.SqlSession;
 
 public class debug {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws SQLException, IOException{
 		
 		
 //		FileDAL_Input FDI=new FileDAL_Input();
@@ -29,30 +37,40 @@ public class debug {
 		
 		ArrayList<String> al=new ArrayList<String>();
 		
-		al.add("KspTooi");
-		al.add("RspTooi");
-		al.add("TspTooi");
-		al.add("Tpooi");
-		al.add("pooi");
 		
-		
-		File file = new File("C:/123.gd");
+		File file = new File("C:/SSS/123.gd");
 		
 		DataManager v6 = new DataManager();
 		
 		v6.createGdc(file);
 		
 		v6.setTarget(file);
-		
-		al=v6.getListFromKey("PlayerList");
-		
-		al.remove(al.size()-1);
-		
-		v6.setKey("PlayerList", al);
-		
-		System.out.println();
+
 		
 		
+		
+		
+		
+//		SqlSessionFactory SSF=new SqlSessionFactory();	
+//				
+//		SqlSession conn = SSF.getSqlSession();
+//		
+//		System.out.println("÷¥––≤È—Ø");
+//		
+//		
+//		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+//		
+//		while(true) {
+//			
+//			
+//			conn.query(br.readLine());
+//			
+//			conn.release();
+//			
+//		}
+		
+		
+	
 		
 	}
 

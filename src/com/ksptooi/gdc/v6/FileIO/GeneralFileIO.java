@@ -24,6 +24,8 @@ public class GeneralFileIO {
 			
 			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(File),"UTF-8"));
 			
+			
+			
 			String line=null;
 			
 			while((line=br.readLine()) != null){
@@ -40,7 +42,6 @@ public class GeneralFileIO {
 			e.printStackTrace();
 			DataCore.LogManager.logError("文件系统错误 at getFileContent");
 		}
-			
 		
 		return new GDCEntity(List);
 		

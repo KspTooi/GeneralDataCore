@@ -9,7 +9,7 @@ import com.ksptooi.gdc.v6.FileProcess.FileProcess;
 import com.ksptooi.gdc.v6.FileProcess.dataSession;
 import com.ksptooi.gdc.v6.Mysql.SqlSession;
 
-public class DataManager extends IOController_V5{
+public class DataFactory extends IOController_V5{
 	
 	
 	FileProcess FP=null;
@@ -21,7 +21,7 @@ public class DataManager extends IOController_V5{
 	
 	private int poolInitSize=16;
 	
-	public DataManager() {
+	public DataFactory() {
 		this.FP = new FileProcess();
 	}
 	
