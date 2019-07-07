@@ -1,12 +1,9 @@
 package com.ksptooi.generalDebug;
 
 import java.io.File;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
-import com.ksptooi.gdc.Entity.GDCEntity;
-import com.ksptooi.gdc.FileDAL.GeneralFileIO;
-import com.ksptooi.gdc.v5.MysqlAPI.MysqlController;
+import com.ksptooi.gdc.Main.gdcList;
 import com.ksptooi.gdc.v6.Manager.DataManager;
 
 public class debug {
@@ -30,19 +27,30 @@ public class debug {
 //		System.out.println(V5.getKeyValue("@LineType"));
 		
 		
-		MysqlController MC=new MysqlController();
+		ArrayList<String> al=new ArrayList<String>();
+		
+		al.add("KspTooi");
+		al.add("RspTooi");
+		al.add("TspTooi");
+		al.add("Tpooi");
+		al.add("pooi");
+		
 		
 		File file = new File("C:/123.gd");
 		
-		DataManager V6 = new DataManager();
+		DataManager v6 = new DataManager();
 		
-		V6.createGdc(file);
+		v6.createGdc(file);
 		
-		V6.setTarget(file);
+		v6.setTarget(file);
 		
-		V6.remove("通用数据核心");
+		al=v6.getListFromKey("PlayerList");
 		
-		System.out.println(V6.getKeyForInt("a1"));
+		al.remove(al.size()-1);
+		
+		v6.setKey("PlayerList", al);
+		
+		System.out.println();
 		
 		
 		

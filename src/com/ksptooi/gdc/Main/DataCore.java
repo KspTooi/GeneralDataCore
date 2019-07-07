@@ -7,7 +7,7 @@ import com.ksptooi.gdc.Log.gdcLog;
 public class DataCore {
 
 	
-	public static final String gdc_Version="V6.1-C";
+	public static final String gdc_Version="V6.1-E";
 	
 	public static LogManager LogManager=new gdcLog();
 	

@@ -1,11 +1,14 @@
-package com.ksptooi.gdc.File.Process;
+package com.ksptooi.gdc.v6.FileProcess;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+
 import com.ksptooi.gdc.Entity.GDCEntity;
-import com.ksptooi.gdc.FileDAL.GeneralFileIO;
 import com.ksptooi.gdc.Main.DataCore;
+import com.ksptooi.gdc.Main.gdcList;
+import com.ksptooi.gdc.v6.FileIO.GeneralFileIO;
 
 public class FileProcess{
 
@@ -14,6 +17,45 @@ public class FileProcess{
 	public FileProcess(){
 		GFI=new GeneralFileIO();
 	}
+	
+	
+	
+	
+	
+	//添加新的List Key
+	public void putProcess(File Target,String key,ArrayList<String> value,String SeparationSymbol) {
+		
+		
+		gdcList list=new gdcList(value);
+		
+		this.putProcess(Target, key, list.toString(), SeparationSymbol);
+		
+	}
+	
+	
+	//获取指定key下的list
+	public ArrayList<String> getListFromKeyProcess(File file,String key,String SeparationSymbol) {
+		
+		String keyValue = this.getKeyValueProcess(file, key, SeparationSymbol);
+		
+		
+		try {
+			
+		
+			gdcList list=new gdcList(keyValue);
+			
+			return list.toArrayList();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+			
+		
+	}
+	
+	
 	
 	
 	//删除一个key
@@ -148,6 +190,50 @@ public class FileProcess{
 		}
 		
 		return null;
+		
+	}
+	
+	
+	
+	//设置文件中Key值的内容(集合)
+	public void setKeyValueProcess(File File,String Key,ArrayList<String> Value,String SeparationSymbol){
+		
+		//判断文件是否为空
+		if(File == null){
+			DataCore.LogManager.logError("文件系统错误:没有设置Target");
+			return;
+		}
+		
+		//判断文件是否存在
+		if( ! File.exists()){
+			DataCore.LogManager.logError("文件系统错误:文件未找到:setKeyValueProcess");
+			return;
+		}
+		
+		//将ArrayList解析为GDCList
+		gdcList list=new gdcList(Value);
+		
+		
+		GDCEntity GDCE= null;
+		
+		
+		//获取GDC实体
+		GDCE = GFI.getGDCEntity(File);
+		
+		
+		while(GDCE.next()){
+			
+			if(GDCE.get().contains(Key+SeparationSymbol)){
+				
+				GDCE.set(Key+SeparationSymbol+list.toString());
+				
+			}
+			
+			
+		}
+		
+		GFI.writeGDCEntity(File, GDCE);
+		
 		
 	}
 	
@@ -302,9 +388,9 @@ public class FileProcess{
 		
 		GDCE.reset();
 		
-		while(GDCE.next()){
-			System.out.println("||"+GDCE.get());
-		}
+//		while(GDCE.next()){
+//			System.out.println("||"+GDCE.get());
+//		}
 		
 		
 		GFI.writeGDCEntity(File, GDCE);
@@ -325,9 +411,9 @@ public class FileProcess{
 				
 			File.getParentFile().mkdirs();
 			File.createNewFile();
-			this.addLineProcess(File, "@LineType=GeneralDataCore");
-			this.addLineProcess(File, "@LineVersion=V5");
-			this.addLineProcess(File, "@KeySeparationSymbol==");
+			this.addLineProcess(File, "@Type=GeneralDataCore");
+			this.addLineProcess(File, "@Version=V6");
+			this.addLineProcess(File, "@Symbol==");
 			this.addLineProcess(File, "#	");
 			
 		} catch (IOException e) {

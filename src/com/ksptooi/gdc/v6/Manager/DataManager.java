@@ -1,9 +1,10 @@
 package com.ksptooi.gdc.v6.Manager;
 
 import java.io.File;
+import java.util.ArrayList;
 
-import com.ksptooi.gdc.File.Process.FileProcess;
 import com.ksptooi.gdc.v5.Manager.IOController_V5;
+import com.ksptooi.gdc.v6.FileProcess.FileProcess;
 
 public class DataManager extends IOController_V5{
 	
@@ -48,7 +49,9 @@ public class DataManager extends IOController_V5{
 	
 	/**
 	 * 向一个GD文件中加入一行新的内容,依赖于设置的Target.
+	 * 不建议使用此方法,应该使用put来添加key
 	 * @param Line 将要添加的内容
+	 * @deprecated
 	 */
 	public void addLine(String Line){
 		
@@ -92,6 +95,18 @@ public class DataManager extends IOController_V5{
 		FP.setKeyValueProcess(Target, key, value, this.SeparationSymbol);
 		
 	}
+	
+	/**
+	 * 设置GD文件中指定Key的值
+	 * @param key 要查找的key
+	 * @param value 要设置的值
+	 */
+	public void setKey(String key,ArrayList<String> value){
+		
+		FP.setKeyValueProcess(Target, key, value, this.SeparationSymbol);
+		
+	}
+	
 	
 	/**
 	 * 获取GD文件中指定Key的值
@@ -138,12 +153,38 @@ public class DataManager extends IOController_V5{
 	}
 	
 	/**
+	 * 添加一个新的key与值到GD文件
+	 * @param key 要添加的key
+	 * @param value key的值
+	 */
+	public void put(String key,ArrayList<String> value){
+		
+		FP.putProcess(Target, key, value, this.SeparationSymbol);
+		
+	}
+	
+	
+	
+	
+	
+	/**
 	 * 从GD文件删除一个key
 	 * @param key 要删除的key
 	 */
 	public void remove(String key){
 		
 		FP.removeProcess(Target, key);
+		
+	}
+	
+	/**
+	 * 获取GD文件中指定Key下的列
+	 * @param key 要查找的key
+	 * @return ArrayList
+	 */
+	public ArrayList<String> getListFromKey(String key){
+		
+		return FP.getListFromKeyProcess(Target, key, SeparationSymbol);
 		
 	}
 	
