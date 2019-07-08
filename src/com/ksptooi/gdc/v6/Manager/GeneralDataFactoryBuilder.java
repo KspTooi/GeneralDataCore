@@ -3,8 +3,6 @@ package com.ksptooi.gdc.v6.Manager;
 import java.io.File;
 
 import com.ksptooi.gdc.v6.Factory.DataSessionFactory;
-import com.ksptooi.gdc.v6.Factory.DataSessionFactory;
-import com.ksptooi.gdc.v6.Factory.SqlSessionFactory;
 import com.ksptooi.gdc.v6.Factory.SqlSessionFactory;
 import com.ksptooi.gdc.v6.Session.dataSession;
 

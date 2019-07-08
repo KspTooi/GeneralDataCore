@@ -80,7 +80,6 @@ public class dataSession{
 		
 		if(isChange) {
 			io.writeGDCEntity(dataSources, data);
-			System.out.println("进行写入");
 		}	
 		
 		data = null;
@@ -91,9 +90,6 @@ public class dataSession{
 		
 		fromFactory.getListDataSession().add(this);
 		
-		System.out.println("释放Session:"+this);
-		
-		System.out.println("Session池大小:"+fromFactory.getListDataSession().size());
 		
 	}
 	
