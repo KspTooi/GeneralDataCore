@@ -1,4 +1,4 @@
-package com.ksptooi.gdc.v6.Mysql;
+package com.ksptooi.gdc.v6.Session;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import com.ksptooi.gdc.Main.DataCore;
-import com.ksptooi.gdc.v6.Manager.SqlSessionFactory;
+import com.ksptooi.gdc.v6.Factory.SqlSessionFactory;
 
 public class SqlSession {
 

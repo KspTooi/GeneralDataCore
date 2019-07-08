@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import com.ksptooi.gdc.Entity.GDCEntity;
 import com.ksptooi.gdc.Main.DataCore;
 
@@ -23,8 +22,6 @@ public class GeneralFileIO {
 		try{
 			
 			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(File),"UTF-8"));
-			
-			
 			
 			String line=null;
 			

@@ -263,8 +263,7 @@ public class FileProcess{
 				GDCE.set(Key+SeparationSymbol+Value);
 				
 			}
-			
-			
+				
 		}
 		
 		GFI.writeGDCEntity(File, GDCE);
@@ -325,7 +324,6 @@ public class FileProcess{
 			}	
 			
 		}
-		
 	
 		return count;
 

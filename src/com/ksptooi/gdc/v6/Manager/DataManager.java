@@ -2,13 +2,15 @@ package com.ksptooi.gdc.v6.Manager;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import com.ksptooi.gdc.v5.Manager.IOController_V5;
 import com.ksptooi.gdc.v6.FileProcess.FileProcess;
-import com.ksptooi.gdc.v6.FileProcess.dataSession;
-import com.ksptooi.gdc.v6.Mysql.SqlSession;
 
+/**
+ * 
+ * @author Administrator
+ * @deprecated
+ */
 public class DataManager extends IOController_V5{
 	
 	
@@ -16,10 +18,6 @@ public class DataManager extends IOController_V5{
 	File Target=null;
 	
 	String SeparationSymbol="=";
-	
-	private LinkedList<dataSession> listDataSession = new LinkedList<dataSession>();
-	
-	private int poolInitSize=16;
 	
 	public DataManager() {
 		this.FP = new FileProcess();

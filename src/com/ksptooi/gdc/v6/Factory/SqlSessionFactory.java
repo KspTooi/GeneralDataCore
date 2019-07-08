@@ -1,38 +1,45 @@
-package com.ksptooi.gdc.v6.Manager;
+package com.ksptooi.gdc.v6.Factory;
 
-import java.sql.SQLException;
 import java.util.LinkedList;
-import com.ksptooi.gdc.v6.Mysql.SqlSession;
+import com.ksptooi.gdc.v6.Session.SqlSession;
 
 public class SqlSessionFactory{
 
 	
-	private String address="127.0.0.1:3306";
+	private String address="*";
 	
-	private String dbName="asmc";
+	private String dbName="*";
 	
-	private String user="root";
+	private String user="*";
 	
-	private String password="h14R4g5Rf6H5h7f";
+	private String password="*";
 	
-	private String param="?useSSL=false&characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true";
+	private String param="*";
 	
 	private int poolInitSize=16;
 	
 	private LinkedList<SqlSession> listConnections = new LinkedList<SqlSession>();
 	
 	
-	//SSF构造方法 - 自动创建sql连接
-	public SqlSessionFactory() {
-					
+	//SSF构造方法
+	public SqlSessionFactory(String address,String dbName,String user,String pwd,String param,int initSize) {
+		
+		//初始化属性
+		this.address=address;
+		this.dbName=dbName;
+		this.user=user;
+		this.password=pwd;
+		this.param=param;	
+		this.poolInitSize=initSize;
+		
+		//创建SQL连接
 		for(int i=0;i<poolInitSize;i++) {
 			
-			System.out.println("jdbc:mysql://"+address+"/"+dbName+param);
-				
+//			System.out.println("jdbc:mysql://"+address+"/"+dbName+param);
 				
 			SqlSession sqlSession = new SqlSession(this,"jdbc:mysql://"+address+"/"+dbName+param,user,password);
 				
-			System.out.println("获取到SqlSession:"+sqlSession);
+//			System.out.println("获取到SqlSession:"+sqlSession);
 				
 			listConnections.add(sqlSession);
 				
@@ -40,7 +47,7 @@ public class SqlSessionFactory{
 		
 	}
 	
-    public SqlSession getSqlSession() throws SQLException {
+    public SqlSession getSqlSession(){
     	
     	
     	while(true) {
@@ -51,11 +58,11 @@ public class SqlSessionFactory{
                 //从集合中获取一个数据库连接
                 SqlSession sqlSession = listConnections.removeFirst();
                 
-                System.out.println("当前数据库连接池大小是" + listConnections.size());
+//                System.out.println("当前数据库连接池大小是" + listConnections.size());
                  
                 //检查连接有效性
                 if(sqlSession.isClosed()) {
-                	System.out.println("待分配的SqlSession已失效");
+//                	System.out.println("待分配的SqlSession已失效");
                 	continue;
                 }
                   
