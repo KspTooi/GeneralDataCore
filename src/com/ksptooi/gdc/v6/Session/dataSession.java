@@ -154,6 +154,15 @@ public class dataSession{
 		this.put(key, String.valueOf(value));			
 	}
 	
+	public void put(String key,float value) {
+		if(isRelease()) {
+			return;
+		}
+		
+		this.put(key, String.valueOf(value));			
+	}
+	
+	
 	
 	public void addline(String value) {
 		
@@ -215,6 +224,16 @@ public class dataSession{
 	}
 	
 	public void set(String key,boolean value) {
+		
+		if(isRelease()) {
+			return;
+		}
+		
+		this.set(key, String.valueOf(value));
+		
+	}
+	
+	public void set(String key,float value) {
 		
 		if(isRelease()) {
 			return;
@@ -294,6 +313,17 @@ public class dataSession{
 		String str = this.get(key);
 		
 		return Boolean.valueOf(str);
+	}
+	
+	public Float getFloat(String key) {
+		
+		if(isRelease()) {
+			return -1F;
+		}
+		
+		String str = this.get(key);
+		
+		return Float.valueOf(str);
 	}
 	
 	public int getRepeat(String Match) {
