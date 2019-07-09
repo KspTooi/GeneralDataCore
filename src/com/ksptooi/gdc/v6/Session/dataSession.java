@@ -146,6 +146,14 @@ public class dataSession{
 		this.put(key, String.valueOf(value));
 	}
 	
+	public void put(String key,boolean value) {
+		if(isRelease()) {
+			return;
+		}
+		
+		this.put(key, String.valueOf(value));			
+	}
+	
 	
 	public void addline(String value) {
 		
@@ -203,6 +211,16 @@ public class dataSession{
 		gdcList list = new gdcList(value);
 		
 		this.set(key, list.toString());
+		
+	}
+	
+	public void set(String key,boolean value) {
+		
+		if(isRelease()) {
+			return;
+		}
+		
+		this.set(key, String.valueOf(value));
 		
 	}
 	
@@ -267,6 +285,16 @@ public class dataSession{
 	}
 	
 	
+	public Boolean getBoolean(String key) {
+		
+		if(isRelease()) {
+			return false;
+		}
+		
+		String str = this.get(key);
+		
+		return Boolean.valueOf(str);
+	}
 	
 	public int getRepeat(String Match) {
 		
