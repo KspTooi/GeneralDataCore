@@ -107,7 +107,7 @@ public class SqlSession {
 		
 		try {
 			
-			ResultSet rs=DataCore.mysql_Conn.getMetaData().getTables(null, null, tableName, null);
+			ResultSet rs=conn.getMetaData().getTables(null, null, tableName, null);
 			
 	         if (rs.next()) {  
 	               return true;  
