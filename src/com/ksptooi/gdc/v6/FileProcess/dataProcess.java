@@ -1,6 +1,7 @@
 package com.ksptooi.gdc.v6.FileProcess;
 
 import com.ksptooi.gdc.Entity.GDCEntity;
+import com.ksptooi.gdc.Main.DataCore;
 
 public class dataProcess {
 
@@ -80,6 +81,8 @@ public class dataProcess {
 			}
 				
 		}
+		
+		DataCore.LogManager.logWarning("文件系统错误! 未找到Key - "+key);
 		
 		return null;
 		
