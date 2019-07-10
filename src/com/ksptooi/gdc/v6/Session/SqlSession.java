@@ -97,6 +97,37 @@ public class SqlSession {
 		
 	}
 	
+	
+	//判断某张表是否存在
+	public boolean isExistsTable(String tableName){
+		
+		if(isRelease) {
+			throw new RuntimeException("该SqlSession已被释放!");
+		}
+		
+		try {
+			
+			ResultSet rs=DataCore.mysql_Conn.getMetaData().getTables(null, null, tableName, null);
+			
+	         if (rs.next()) {  
+	               return true;  
+	         }else {  
+	               return false;  
+	         } 
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DataCore.LogManager.logError("数据库连接错误！");
+		}
+		
+		
+		return false;
+	
+	}
+	
+	
+	
 	//判断当前的SqlSession是否仍然有效
 	public boolean isClosed() {
 		try {

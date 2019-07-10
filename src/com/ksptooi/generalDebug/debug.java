@@ -2,11 +2,9 @@ package com.ksptooi.generalDebug;
 
 import java.io.File;
 
-import com.ksptooi.gdc.v6.Factory.DataSessionFactory;
 import com.ksptooi.gdc.v6.Factory.SqlSessionFactory;
 import com.ksptooi.gdc.v6.Manager.GeneralDataFactoryBuilder;
 import com.ksptooi.gdc.v6.Session.SqlSession;
-import com.ksptooi.gdc.v6.Session.dataSession;
 
 public class debug {
 
@@ -30,7 +28,6 @@ public class debug {
 		
 		
 		sqlSession.release();
-		
 		
 	}
 
