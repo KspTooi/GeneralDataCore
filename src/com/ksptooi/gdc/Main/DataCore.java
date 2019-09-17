@@ -23,5 +23,8 @@ public class DataCore {
 		return gdc_Version;
 	}
 	
+	public static void main(String[] args) {
+		System.out.println(gdc_Version);
+	}
 	
 }

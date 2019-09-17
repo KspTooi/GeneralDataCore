@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="Lib/mysql-JDBC.jar"/>
-	<classpathentry kind="lib" path="E:/1300索引/Src/MineCraftSRC/API/cauldron-1.7.10-1.1231.01.207-server.jar"/>
-	<classpathentry kind="lib" path="Lib/cpdetector_1.0.10.jar"/>
-	<classpathentry kind="lib" path="Lib/ext/antlr-2.7.4.jar"/>
-	<classpathentry kind="lib" path="Lib/ext/chardet-1.0.jar"/>
-	<classpathentry kind="lib" path="Lib/ext/jargs-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="Lib/mysql-JDBC.jar"/>
+	<classpathentry exported="true" kind="lib" path="Lib/cpdetector_1.0.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="Lib/jargs-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="Lib/chardet-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="Lib/antlr-2.7.4.jar"/>
+	<classpathentry kind="lib" path="E:/1300索引/MineCraft Server/1.7.10[TH]/Thermos-1.7.10-1614-57-server.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
