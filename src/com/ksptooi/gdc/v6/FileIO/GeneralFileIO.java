@@ -10,8 +10,17 @@ import java.util.ArrayList;
 import com.ksptooi.gdc.Entity.GDCEntity;
 import com.ksptooi.gdc.Main.DataCore;
 
+import uk.iksp.gdc.v6.CharSet.Detector;
+
 public class GeneralFileIO {
 
+	
+	Detector detector=null;
+	
+	
+	public GeneralFileIO(){
+		this.detector=new Detector();
+	}
 	
 	
 	//从文件获取GDC实体
@@ -21,7 +30,11 @@ public class GeneralFileIO {
 		
 		try{
 			
-			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(File),"UTF-8"));
+			//自动探测文件编码
+			String encode = this.detector.detector(File);
+			
+			//使用自动探测的编码读文件
+			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(File),encode));
 			
 			String line=null;
 			
