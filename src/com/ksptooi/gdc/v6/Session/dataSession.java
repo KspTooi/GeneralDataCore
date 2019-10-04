@@ -336,6 +336,29 @@ public class dataSession{
 		
 	}
 	
+	public ArrayList<String> getLine(){
+		
+		if(isRelease()) {
+			return null;
+		}
+		
+		ArrayList<String> al=new ArrayList<String>();
+		
+		
+		//循环取出data中的内容
+		
+
+		while(this.data.next()){
+			
+			al.add(this.data.get());
+			
+		}
+		
+		
+		return al;
+		
+	}
+	
 	
 	//直接获取所有行内容
 	public ArrayList<String> getAll(){
