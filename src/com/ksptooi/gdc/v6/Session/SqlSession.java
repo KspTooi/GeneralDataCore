@@ -2,9 +2,12 @@ package com.ksptooi.gdc.v6.Session;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+
 import com.ksptooi.gdc.Main.DataCore;
 import com.ksptooi.gdc.v6.Factory.SqlSessionFactory;
 
@@ -19,6 +22,8 @@ public class SqlSession {
 	private Statement stm=null;
 	
 	private ResultSet rs=null;
+	
+	private PreparedStatement pStm=null;
 	
 	
 	//SqlSessin 构造方法
@@ -182,14 +187,167 @@ public class SqlSession {
 			
 		}
 		
+		//关闭PSTM
+		if(pStm != null) {
+			
+			try {
+				pStm.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		
 		//将SqlSession转交给Factory
 		fromFactory.getListConnections().add(this);
 		
-        System.out.println(this + "被还给listConnections数据库连接池了！！");
-        System.out.println("listConnections数据库连接池大小为" + fromFactory.getListConnections().size());
+//        System.out.println(this + "被还给listConnections数据库连接池了！！");
+//        System.out.println("listConnections数据库连接池大小为" + fromFactory.getListConnections().size());
         
         this.isRelease=true;
+		
+	}
+	
+	
+	//psmt相关的操作
+	public void psmt_Create(String str) {
+		
+		try {
+			
+			this.pStm = this.conn.prepareStatement(str);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public ResultSet psmt_Query() {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			return this.pStm.executeQuery();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	public void psmt_NoQuery() {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			this.pStm.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void psmt_setString(int i,String str2) {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			this.pStm.setString(i, str2);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void psmt_setInt(int i,int i1) {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			this.pStm.setInt(i, i1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void psmt_setByte(int i,Byte b1) {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			this.pStm.setByte(i, b1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void psmt_setBytes(int i,byte[] b1) {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			this.pStm.setBytes(i, b1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void psmt_setBoolean(int i,boolean b1) {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			this.pStm.setBoolean(i, b1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void psmt_setTime(int i,Time b1) {
+		
+		if(this.pStm == null) {
+			throw new RuntimeException("PreparaStatement没有创建!");
+		}
+		
+		try {
+			
+			this.pStm.setTime(i, b1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	

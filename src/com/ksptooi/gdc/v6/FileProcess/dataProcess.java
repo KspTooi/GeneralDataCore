@@ -89,6 +89,8 @@ public class dataProcess {
 	}
 	
 	
+
+	
 	
 	//返回文件中有多少行与Match相同的字符串
 	public int getRepeat(GDCEntity data,String Match){

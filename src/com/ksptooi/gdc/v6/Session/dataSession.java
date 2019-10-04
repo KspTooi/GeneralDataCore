@@ -337,5 +337,23 @@ public class dataSession{
 	}
 	
 	
+	//直接获取所有行内容
+	public ArrayList<String> getAll(){
+		
+		ArrayList<String> als=new ArrayList<String>();
+		
+		
+		while(data.next()) {
+			
+			als.add(data.get());
+			
+		}
+		
+		
+		return als;
+		
+	}
+	
+	
 	
 }

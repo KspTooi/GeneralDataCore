@@ -58,13 +58,13 @@ public class SqlSessionFactory{
                 //从集合中获取一个数据库连接
                 SqlSession sqlSession = listConnections.removeFirst();
                 
-//                System.out.println("当前数据库连接池大小是" + listConnections.size());
+//              System.out.println("当前数据库连接池大小是" + listConnections.size());
                  
                 //检查连接有效性
                 if(sqlSession.isClosed()) {
 //                	System.out.println("待分配的SqlSession已失效");
                 	continue;
-                }
+                }	
                   
                 //分配
                 sqlSession.assign(this);

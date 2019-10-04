@@ -7,7 +7,17 @@ import com.ksptooi.gdc.Log.gdcLog;
 public class DataCore {
 
 	
-	public static final String gdc_Version="V6.23-F";
+	
+	public static void main(String[] args) {
+		
+		System.out.println("GeneralDataCore°æ±¾:"+DataCore.gdc_Version);
+		
+	}
+	
+	
+	
+	
+	public static final String gdc_Version="V6.30-A";
 	
 	public static LogManager LogManager=new gdcLog();
 		
