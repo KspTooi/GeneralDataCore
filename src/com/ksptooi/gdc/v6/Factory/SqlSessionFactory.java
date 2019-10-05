@@ -47,7 +47,7 @@ public class SqlSessionFactory{
 		
 	}
 	
-    public SqlSession getSqlSession(){
+    public synchronized SqlSession getSqlSession(){
     	
     	
     	while(true) {
