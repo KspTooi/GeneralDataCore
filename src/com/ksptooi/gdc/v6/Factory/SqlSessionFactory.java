@@ -1,9 +1,9 @@
 package com.ksptooi.gdc.v6.Factory;
 
-import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import com.ksptooi.gdc.v6.Session.SqlSession;
 
-public class SqlSessionFactory{
+public  class SqlSessionFactory{
 
 	
 	private String address="*";
@@ -18,7 +18,10 @@ public class SqlSessionFactory{
 	
 	private int poolInitSize=16;
 	
-	private LinkedList<SqlSession> listConnections = new LinkedList<SqlSession>();
+//	private LinkedList<SqlSession> listConnections = new LinkedList<SqlSession>();
+	
+	private ConcurrentLinkedQueue<SqlSession> listConnections = new ConcurrentLinkedQueue<SqlSession>();
+	
 	
 	
 	//SSF构造方法
@@ -47,28 +50,31 @@ public class SqlSessionFactory{
 		
 	}
 	
+	
+	
     public synchronized SqlSession getSqlSession(){
     	
     	
     	while(true) {
-    		 		
+    		
             //如果数据库连接池中的连接对象的个数大于0
             if (listConnections.size() > 0) {
             	
                 //从集合中获取一个数据库连接
-                SqlSession sqlSession = listConnections.removeFirst();
+                SqlSession sqlSession = listConnections.poll();
                 
 //              System.out.println("当前数据库连接池大小是" + listConnections.size());
                  
                 //检查连接有效性
                 if(sqlSession.isClosed()) {
-//                	System.out.println("待分配的SqlSession已失效");
-                	continue;
+                	System.out.println("待分配的SqlSession已失效");
+                	return null;
                 }	
                   
-                //分配
+
                 sqlSession.assign(this);
-                               
+                
+                                        
                 return sqlSession;
                 
             }
@@ -77,7 +83,11 @@ public class SqlSessionFactory{
             //如果数据库连接池中的连接对象等于或小于0
             throw new RuntimeException("当前数据库正忙!.");		
     		
+    		
     	}
+    		 		
+
+    		
     	
         
     }
@@ -133,11 +143,11 @@ public class SqlSessionFactory{
 		this.poolInitSize = poolInitSize;
 	}
 
-	public LinkedList<SqlSession> getListConnections() {
+	public ConcurrentLinkedQueue<SqlSession> getListConnections() {
 		return listConnections;
 	}
 
-	public void setListConnections(LinkedList<SqlSession> listConnections) {
+	public void setListConnections(ConcurrentLinkedQueue<SqlSession> listConnections) {
 		this.listConnections = listConnections;
 	}
 	

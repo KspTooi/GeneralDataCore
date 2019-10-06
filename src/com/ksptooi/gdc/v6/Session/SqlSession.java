@@ -143,7 +143,7 @@ public class SqlSession {
 	}
 	
 	//分配
-	public void assign(SqlSessionFactory ssf){
+	public synchronized void assign(SqlSessionFactory ssf){
 		
 		if(fromFactory != ssf) {
 			throw new RuntimeException("SqlSession分配时出现错误!");
@@ -158,7 +158,7 @@ public class SqlSession {
 	
 	
 	//立即释放当前连接到连接池
-	public void release() {
+	public synchronized void release() {
 		
 		if(isRelease) {
 			throw new RuntimeException("该SqlSession已被释放!");

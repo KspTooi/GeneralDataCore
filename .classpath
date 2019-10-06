@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="Lib/mysql-JDBC.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/cpdetector_1.0.10.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/jargs-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/chardet-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/antlr-2.7.4.jar"/>
 	<classpathentry kind="lib" path="D:/1219索引/MineCraft Server/1.12.1[PT]/spigot-1.12.1.jar"/>
+	<classpathentry kind="lib" path="Lib/mysql-JDBC.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

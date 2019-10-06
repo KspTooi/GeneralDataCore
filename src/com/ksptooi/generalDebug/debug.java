@@ -15,19 +15,53 @@ public class debug {
 		
 		
 		
-		SqlSessionFactory sessionFactory = GDFB.buildSqlFactory(new File("C://Connect.gd"));
+		SqlSessionFactory sessionFactory = GDFB.buildSqlFactory(new File("C://ASMC/ASMC.Conf"));
+
+
+
 		
 		
-		SqlSession sqlSession = sessionFactory.getSqlSession();
+		Thread th=new Thread( () ->{
+					
+			int i=0;
+			
+			while(true) {
+				
+				SqlSession sqlSession = sessionFactory.getSqlSession();
+				
+				sqlSession.release();
+				i = i+1;
+				System.out.println(i);
+				
+			}				
+			
+		});		
 		
 		
-		sqlSession.query("select * from xxxx");
+		th.start();
 		
 		
-		sqlSession.noQuery("update xxxxx");
+		while(true) {
+			
+			SqlSession sqlSession = sessionFactory.getSqlSession();
+			
+			sqlSession.release();
+			
+		}
 		
 		
-		sqlSession.release();
+		
+		
+//		SqlSession sqlSession = sessionFactory.getSqlSession();
+//		
+//		
+//		sqlSession.query("select * from xxxx");
+//		
+//		
+//		sqlSession.noQuery("update xxxxx");
+//		
+//		
+//		sqlSession.release();
 		
 	}
 
