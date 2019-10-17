@@ -32,7 +32,7 @@ public class DataSessionFactory{
 	
 	
 	//打开一个数据Session
-	public dataSession openSession(File file) {
+	public synchronized dataSession openSession(File file) {
 		
 		if(listDataSession.size() > 0) {
 			

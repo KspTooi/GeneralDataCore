@@ -34,6 +34,7 @@ public class GeneralDataFactoryBuilder{
 		
 	}
 	
+	
 	//构建SqlSessionFactory - 从文件构建
 	public SqlSessionFactory buildSqlSessionFactory(File file){
 		

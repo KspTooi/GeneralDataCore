@@ -8,7 +8,7 @@ import com.ksptooi.gdc.v6.Factory.DataSessionFactory;
 import com.ksptooi.gdc.v6.FileIO.GeneralFileIO;
 import com.ksptooi.gdc.v6.FileProcess.dataProcess;
 
-public class dataSession{
+public class dataSession implements AutoCloseable {
 
 	//IO
 	GeneralFileIO io= new GeneralFileIO();
@@ -75,7 +75,7 @@ public class dataSession{
 	
 	
 	// Õ∑≈
-	public void release() {
+	public synchronized void release() {
 		
 		
 		if(isChange) {
@@ -87,7 +87,7 @@ public class dataSession{
 		
 		this.isRelease=true;
 		this.isChange=false;
-		
+		System.out.println(fromFactory.getListDataSession().size());
 		fromFactory.getListDataSession().add(this);
 		
 		
@@ -374,6 +374,23 @@ public class dataSession{
 		
 		
 		return als;
+		
+	}
+
+	@Override
+	public void close() {
+		
+		if(isChange) {
+			io.writeGDCEntity(dataSources, data);
+		}	
+		
+		data = null;
+		dataSources = null;
+		
+		this.isRelease=true;
+		this.isChange=false;
+		
+		fromFactory.getListDataSession().add(this);
 		
 	}
 	
