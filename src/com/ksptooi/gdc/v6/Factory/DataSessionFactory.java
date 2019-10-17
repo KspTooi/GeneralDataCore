@@ -2,14 +2,14 @@ package com.ksptooi.gdc.v6.Factory;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.ksptooi.gdc.v6.Session.dataSession;
 
 public class DataSessionFactory{
 	
 	
-	public LinkedList<dataSession> listDataSession = new LinkedList<dataSession>();
+	private ConcurrentLinkedQueue<dataSession> listDataSession = new ConcurrentLinkedQueue<dataSession>();
 	
 	public int poolInitSize=64;
 	
@@ -36,7 +36,7 @@ public class DataSessionFactory{
 		
 		if(listDataSession.size() > 0) {
 			
-			dataSession dataSession = listDataSession.removeFirst();
+			dataSession dataSession = listDataSession.poll();
 			
 			dataSession.assign(this,file);
 			
@@ -77,11 +77,11 @@ public class DataSessionFactory{
 	
 	
 	//getseter
-	public LinkedList<dataSession> getListDataSession() {
+	public ConcurrentLinkedQueue<dataSession> getListDataSession() {
 		return listDataSession;
 	}
 
-	public void setListDataSession(LinkedList<dataSession> listDataSession) {
+	public void setListDataSession(ConcurrentLinkedQueue<dataSession> listDataSession) {
 		this.listDataSession = listDataSession;
 	}
 

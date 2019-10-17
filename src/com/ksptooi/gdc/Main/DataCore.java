@@ -15,7 +15,7 @@ public class DataCore {
 	}
 	
 	
-	public static final String gdc_Version="V7.08-A";
+	public static final String gdc_Version="V7.08-E";
 	
 	public static LogManager LogManager=new gdcLog();
 	
