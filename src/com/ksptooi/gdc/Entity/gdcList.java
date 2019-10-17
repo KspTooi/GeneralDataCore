@@ -1,4 +1,4 @@
-package com.ksptooi.gdc.Main;
+package com.ksptooi.gdc.Entity;
 
 import java.util.ArrayList;
 

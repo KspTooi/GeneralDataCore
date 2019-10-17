@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import com.ksptooi.gdc.Entity.GDCEntity;
+import com.ksptooi.gdc.Entity.gdcList;
 import com.ksptooi.gdc.Main.DataCore;
-import com.ksptooi.gdc.Main.gdcList;
 import com.ksptooi.gdc.v6.FileIO.GeneralFileIO;
 
 public class FileProcess{

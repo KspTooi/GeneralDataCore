@@ -3,7 +3,7 @@ package com.ksptooi.gdc.v6.Session;
 import java.io.File;
 import java.util.ArrayList;
 import com.ksptooi.gdc.Entity.GDCEntity;
-import com.ksptooi.gdc.Main.gdcList;
+import com.ksptooi.gdc.Entity.gdcList;
 import com.ksptooi.gdc.v6.Factory.DataSessionFactory;
 import com.ksptooi.gdc.v6.FileIO.GeneralFileIO;
 import com.ksptooi.gdc.v6.FileProcess.dataProcess;
