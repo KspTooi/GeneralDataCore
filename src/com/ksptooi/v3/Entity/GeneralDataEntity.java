@@ -2,6 +2,8 @@ package com.ksptooi.v3.Entity;
 
 import java.util.ArrayList;
 
+import uk.isp.v7.main.DataCore;
+
 public class GeneralDataEntity {
 
 	
@@ -78,5 +80,160 @@ public class GeneralDataEntity {
 		return false;
 		
 	}
+	
+	
+	//数据操作
+	
+	
+	//添加新的行内容
+	public void addline(String value) {	
+		this.addLast(value);
+	}
+	
+	
+	//添加新的key
+	public void put(String key,String value) {			
+		this.addLast(key+"="+value);		
+	}
+	
+	
+	//修改value
+	public void set(String key,String value) {
+			
+		while(this.next()){
+			
+			if(this.get().contains(key+"=")){
+				
+				
+				this.set(key+"="+value);
+				
+			}
+				
+		}
+		
+		this.reset();	
+		
+	}
+	
+	
+	//删除
+	public void remove(String key) {
+		
+		while(this.next()){
+			
+			if(this.get().contains(key+"=")){
+				
+				this.remove();
+				
+			}
+				
+		}
+		
+		this.reset();
+	}
+	
+	//查询
+	public String get(String key) {
+		
+		while(this.next()){
+			
+			if(this.get().contains(key+"=")){
+				
+				String str = this.get().replace(key+"=", "");
+				
+				this.reset();
+				
+				return str;
+				
+			}
+				
+		}
+		
+		DataCore.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
+		
+		return null;
+		
+	}
+	
+	//返回实体中有多少行与Match相同的字符串
+	public int getRepeat(String Match){
+		
+		int count=0;
+				
+		while(this.next()){
+					
+			if(this.get().equals(Match)){
+				count++;
+			}	
+			
+		}
+	
+		return count;
+
+	}
+	
+	
+	
+	//查询KeyList
+	public KeyList getKeyList(String key) {
+		
+		ArrayList<String> al=new ArrayList<String>();
+		
+		
+		while(this.next()){
+			
+			if(this.get().contains(key+"=")){
+				
+				String str = this.get().replace(key+"=", "");
+						
+				al.add(str);	
+			}
+				
+		}
+		
+		this.reset();
+		
+		if(al.size()==0){
+			DataCore.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
+			return null;
+		}
+		
+		
+		//生成KeyList
+		
+		KeyList kl=new KeyList(al,key);
+		return kl;	
+	}
+	
+	
+	//更新KeyList
+	public void setKeyList(KeyList keyList){
+		
+		
+		String key=keyList.getKey();
+		
+		int index = 0;
+		
+		while((this.next() && (index<keyList.getSize()))){
+			
+			if(this.get().contains(key+"=")){
+				
+				this.set(key+"="+keyList.index(index));
+				index++;
+				
+			}
+				
+		}
+		
+		this.reset();	
+		
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 }

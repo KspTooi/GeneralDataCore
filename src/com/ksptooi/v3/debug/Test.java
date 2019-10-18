@@ -3,6 +3,8 @@ package com.ksptooi.v3.debug;
 import java.io.File;
 import java.util.ArrayList;
 
+import com.ksptooi.v3.Entity.KeyList;
+
 import uk.iksp.v7.Factory.DataSessionFactory;
 import uk.iksp.v7.FactoryBuilder.GeneralDataFactoryBuilder;
 import uk.iksp.v7.Session.DataSession;
@@ -13,6 +15,11 @@ public class Test {
 	public static void main(String[] args){
 		
 		
+		
+//		System.out.println((true&&false));
+		
+		
+		
 		GeneralDataFactoryBuilder gdfb=new GeneralDataFactoryBuilder();
 		
 		DataSessionFactory dsf = gdfb.buildDataFactory(32);
@@ -20,9 +27,10 @@ public class Test {
 		
 		try(DataSession os = dsf.openSession(new File("C:/123.gd"))){
 			
-			ArrayList<String> al=new ArrayList<String>();
+			
 			
 		}
+		
 		
 		
 		

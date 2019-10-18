@@ -1,49 +1,39 @@
 package uk.iksp.v7.Session;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.util.ArrayList;
-
 import com.ksptooi.v3.Entity.GeneralDataEntity;
 import com.ksptooi.v3.Entity.GeneralDataListEntity;
+import com.ksptooi.v3.Entity.KeyList;
 
-import uk.iksp.v7.DataSourcesServices.DataSourcesService;
-import uk.iksp.v7.DataSourcesServices.FileDataSourceIO;
+import uk.iksp.v7.DataSourcesServices.GeneralDataSourceIO;
 import uk.iksp.v7.Factory.DataSessionFactory;
 
 public class DataSession implements AutoCloseable {
 
 	//IO
-	FileDataSourceIO io= new FileDataSourceIO();
+	GeneralDataSourceIO io= new GeneralDataSourceIO();
 	
 	private boolean isChange=false;
 	
 	//数据缓存
 	GeneralDataEntity data=null;
 	
+	
 	//数据源 - 文件
 	private File dataSources=null;
 	
-	
-	//数据源 - 流
-	private InputStream inputStream = null;
-	private OutputStream outputStream = null;
-	
-	
-	//Factory
+	//FromFactory
 	private DataSessionFactory fromFactory=null;
 	
-	
+	//是否已被释放
 	private boolean isRelease=true;
+
 	
-	//Process
-	DataSourcesService process=new DataSourcesService();
 	
+	
+	/**公用方法*/	
+	 
 	
 	//构造
 	public DataSession(DataSessionFactory fromFactory){
@@ -81,30 +71,14 @@ public class DataSession implements AutoCloseable {
 			throw new RuntimeException("没有找到该文件.");
 		}
 		
-
+			
+		//加载数据源
+		this.dataSources=dataSources;
+			
 		
-		try {
-			
-			//加载数据源
-			this.dataSources=dataSources;
-			
-			this.inputStream = new FileInputStream(this.dataSources);
-			
-			this.outputStream = new FileOutputStream(this.dataSources);
-			
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		
-		data = io.getGDCEntity(this.dataSources);
+		data = io.getGeneralDataEntity(this.dataSources);
 		
 	}
-	
-	
-	
-	
 	
 	
 	//释放
@@ -112,7 +86,7 @@ public class DataSession implements AutoCloseable {
 		
 		
 		if(isChange) {
-			io.writeGDCEntity(dataSources, data);
+			io.updateGeneralDataEntity(dataSources, data);
 		}	
 		
 		data = null;
@@ -135,6 +109,35 @@ public class DataSession implements AutoCloseable {
 		return false;
 	}
 	
+	@Override
+	public void close() {
+		
+		if(isChange) {
+			io.updateGeneralDataEntity(dataSources, data);
+		}	
+		
+		data = null;
+		dataSources = null;
+		
+		this.isRelease=true;
+		this.isChange=false;
+		
+		fromFactory.getListDataSession().add(this);
+		
+	}
+	
+	
+	/**公用方法 -结束*/	
+	
+	
+	
+	
+	/**
+	 * 
+	 * 增加
+	 *
+	 **/
+	
 	
 	//添加新的Key 与Value
 	public void put(String key,String value) {	
@@ -145,52 +148,28 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data=process.put(data, key, value);
+		this.data.put(key, value);
 	
 	}
 	
-	public void put(String key,ArrayList<String> value) {
-		
-		if(isRelease()) {
-			return;
-		}
-		
-		GeneralDataListEntity list=new GeneralDataListEntity(value);
-		
+	public void put(String key,ArrayList<String> value) {	
+		GeneralDataListEntity list=new GeneralDataListEntity(value);	
 		this.put(key, list.toString());
 	}
 		
-	public void put(String key,double value) {
-		
-		if(isRelease()) {
-			return;
-		}
-		
-		this.put(key, String.valueOf(value));
-		
+	public void put(String key,double value) {	
+		this.put(key, String.valueOf(value));	
 	}
 	
 	public void put(String key,int value) {
-		if(isRelease()) {
-			return;
-		}
-		
 		this.put(key, String.valueOf(value));
 	}
 	
 	public void put(String key,boolean value) {
-		if(isRelease()) {
-			return;
-		}
-		
 		this.put(key, String.valueOf(value));			
 	}
 	
 	public void put(String key,float value) {
-		if(isRelease()) {
-			return;
-		}
-		
 		this.put(key, String.valueOf(value));			
 	}
 	
@@ -204,13 +183,18 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		process.addline(data, value);
-		
+		this.data.addline(value);	
 	}
 			
 	
 	
-	//修改key的value
+	
+	/**
+	 * 
+	 * 修改
+	 *
+	 **/
+	
 	public void set(String key,String value) {
 		
 		if(isRelease()) {
@@ -219,64 +203,52 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data=process.set(this.data, key, value);
+		this.data.set(key, value);
 		
 	}
 	
-	public void set(String key,int value) {
-		
-		if(isRelease()) {
-			return;
-		}
-		
-		this.set(key, String.valueOf(value));
-		
+	public void set(String key,int value) {		
+		this.set(key, String.valueOf(value));	
 	}
 	
 	public void set(String key,double value) {
-		
-		if(isRelease()) {
-			return;
-		}
-		
-		this.set(key, String.valueOf(value));
-		
+		this.set(key, String.valueOf(value));	
 	}
 	
 	public void set(String key,ArrayList<String> value) {
-		
-		if(isRelease()) {
-			return;
-		}
-		
 		GeneralDataListEntity list = new GeneralDataListEntity(value);
-		
-		this.set(key, list.toString());
-		
+		this.set(key, list.toString());	
 	}
 	
 	public void set(String key,boolean value) {
-		
-		if(isRelease()) {
-			return;
-		}
-		
-		this.set(key, String.valueOf(value));
-		
+		this.set(key, String.valueOf(value));	
 	}
 	
 	public void set(String key,float value) {
+		this.set(key, String.valueOf(value));	
+	}
+	
+	//修改行列表
+	public void set(KeyList keyList){
 		
 		if(isRelease()) {
 			return;
 		}
 		
-		this.set(key, String.valueOf(value));
+		isChange=true;
 		
+		this.data.setKeyList(keyList);
 	}
 	
 	
-	//删除
+
+	
+	
+	/**
+	 * 
+	 * 删除
+	 *
+	 **/
 	public void remove(String key) {
 		
 		if(isRelease()) {
@@ -285,76 +257,58 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data=process.remove(this.data, key);
+		this.data.remove(key);
 	}
 	
 	
+	
+	
+	/**
+	 * 
+	 * 查询
+	 *
+	 **/
+	
 	//查询
 	public String get(String key) {
+		
 		
 		if(isRelease()) {
 			return null;
 		}
 		
-		return process.get(data, key);
+		return this.data.get(key);	
 		
 	}
 	
 	public int getInt(String key) {
 		
-		if(isRelease()) {
-			return -1;
-		}
-		
-		String str = this.get(key);
-			
+		String str = this.get(key);			
 		return new Integer(str);
 	}
 	
 	public double getDouble(String key) {
-		
-		if(isRelease()) {
-			return -1;
-		}
-		
 		String str = this.get(key);
-		
 		return Double.valueOf(str);
 	}
 	
 	public ArrayList<String> getList(String key) {
-		
-		if(isRelease()) {
-			return null;
-		}
-		
-		String str = this.get(key);
-		
-		GeneralDataListEntity list=new GeneralDataListEntity(str);
-		
+				
+		String str = this.get(key);		
+		GeneralDataListEntity list=new GeneralDataListEntity(str);		
 		return list.toArrayList();
 	}
 	
 	
 	public Boolean getBoolean(String key) {
 		
-		if(isRelease()) {
-			return false;
-		}
-		
-		String str = this.get(key);
-		
+		String str = this.get(key);		
 		return Boolean.valueOf(str);
 	}
 	
 	public Float getFloat(String key) {
 		
-		if(isRelease()) {
-			return -1F;
-		}
-		
-		String str = this.get(key);
-		
+		String str = this.get(key);		
 		return Float.valueOf(str);
 	}
 	
@@ -363,10 +317,9 @@ public class DataSession implements AutoCloseable {
 		if(isRelease()) {
 			return -1;
 		}
-		
-		return process.getRepeat(data, Match);
-		
+		return this.data.getRepeat(Match);	
 	}
+	
 	
 	public ArrayList<String> getLine(){
 		
@@ -408,23 +361,14 @@ public class DataSession implements AutoCloseable {
 		return als;
 		
 	}
-
-	@Override
-	public void close() {
+	
+	//获取行列表
+	public KeyList getKeyList(String key){
 		
-		if(isChange) {
-			io.writeGDCEntity(dataSources, data);
-		}	
-		
-		data = null;
-		dataSources = null;
-		
-		this.isRelease=true;
-		this.isChange=false;
-		
-		fromFactory.getListDataSession().add(this);
+		return this.data.getKeyList(key);	
 		
 	}
+
 	
 	
 	
