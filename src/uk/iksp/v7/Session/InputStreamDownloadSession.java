@@ -80,7 +80,6 @@ public class InputStreamDownloadSession extends Session{
         
         while((len = inputStream.read(buffer)) != -1) {
         	
-        	System.out.println("123");
             bos.write(buffer, 0, len);
             
         }
