@@ -2,36 +2,21 @@ package uk.iksp.v7.Session;
 
 import java.io.File;
 import java.util.ArrayList;
-import com.ksptooi.v3.Entity.GeneralDataEntity;
 import com.ksptooi.v3.Entity.GeneralDataListEntity;
 import com.ksptooi.v3.Entity.KeyList;
-
-import uk.iksp.v7.DataSourcesServices.GeneralDataSourceIO;
 import uk.iksp.v7.Factory.DataSessionFactory;
 
-public class DataSession implements AutoCloseable {
+public class DataSession extends Session{
 
-	//IO
-	GeneralDataSourceIO io= new GeneralDataSourceIO();
 	
 	private boolean isChange=false;
-	
-	//数据缓存
-	GeneralDataEntity data=null;
 	
 	
 	//数据源 - 文件
 	private File dataSources=null;
 	
-	//FromFactory
-	private DataSessionFactory fromFactory=null;
 	
-	//是否已被释放
-	private boolean isRelease=true;
 
-	
-	
-	
 	/**公用方法*/	
 	 
 	
@@ -50,10 +35,11 @@ public class DataSession implements AutoCloseable {
 			throw new RuntimeException("DataFactory is not really");
 		}
 		
+		
 	}
 	
 	//分配
-	public void assign(DataSessionFactory df,File dataSources) {
+	public synchronized void assign(DataSessionFactory df,File dataSources) {
 		
 		if(this.fromFactory == null) {
 			throw new RuntimeException("DataFactory is null");
@@ -74,56 +60,35 @@ public class DataSession implements AutoCloseable {
 			
 		//加载数据源
 		this.dataSources=dataSources;
-			
 		
-		data = io.getGeneralDataEntity(this.dataSources);
+		dataCache = io.getGeneralDataEntity(this.dataSources);
 		
 	}
 	
 	
 	//释放
-	public synchronized void release() {
+	public synchronized void release(){
 		
 		
 		if(isChange) {
-			io.updateGeneralDataEntity(dataSources, data);
+			io.updateGeneralDataEntity(dataSources, dataCache);
 		}	
 		
-		data = null;
+		dataCache = null;
 		dataSources = null;
 		
 		this.isRelease=true;
 		this.isChange=false;
-		System.out.println(fromFactory.getListDataSession().size());
+//		System.out.println(fromFactory.getListDataSession().size());
 		fromFactory.getListDataSession().add(this);
 		
 	}
 	
-	//判断是否能执行
-	private boolean isRelease() {
-		
-		if(this.isRelease) {
-			throw new RuntimeException("该Session已被释放.");	
-		}
-		
-		return false;
-	}
+	
 	
 	@Override
 	public void close() {
-		
-		if(isChange) {
-			io.updateGeneralDataEntity(dataSources, data);
-		}	
-		
-		data = null;
-		dataSources = null;
-		
-		this.isRelease=true;
-		this.isChange=false;
-		
-		fromFactory.getListDataSession().add(this);
-		
+		this.release();	
 	}
 	
 	
@@ -132,12 +97,15 @@ public class DataSession implements AutoCloseable {
 	
 	
 	
+
+			
+
+	
 	/**
 	 * 
 	 * 增加
 	 *
 	 **/
-	
 	
 	//添加新的Key 与Value
 	public void put(String key,String value) {	
@@ -148,7 +116,7 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data.put(key, value);
+		this.dataCache.put(key, value);
 	
 	}
 	
@@ -183,9 +151,9 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data.addline(value);	
+		this.dataCache.addline(value);	
 	}
-			
+	
 	
 	
 	
@@ -203,7 +171,7 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data.set(key, value);
+		this.dataCache.set(key, value);
 		
 	}
 	
@@ -237,11 +205,9 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data.setKeyList(keyList);
+		this.dataCache.setKeyList(keyList);
 	}
 	
-	
-
 	
 	
 	/**
@@ -257,8 +223,10 @@ public class DataSession implements AutoCloseable {
 		
 		isChange=true;
 		
-		this.data.remove(key);
+		this.dataCache.remove(key);
 	}
+	
+
 	
 	
 	
@@ -277,7 +245,7 @@ public class DataSession implements AutoCloseable {
 			return null;
 		}
 		
-		return this.data.get(key);	
+		return this.dataCache.get(key);	
 		
 	}
 	
@@ -317,7 +285,7 @@ public class DataSession implements AutoCloseable {
 		if(isRelease()) {
 			return -1;
 		}
-		return this.data.getRepeat(Match);	
+		return this.dataCache.getRepeat(Match);	
 	}
 	
 	
@@ -333,9 +301,9 @@ public class DataSession implements AutoCloseable {
 		//循环取出data中的内容
 		
 
-		while(this.data.next()){
+		while(this.dataCache.next()){
 			
-			al.add(this.data.get());
+			al.add(this.dataCache.get());
 			
 		}
 		
@@ -351,9 +319,9 @@ public class DataSession implements AutoCloseable {
 		ArrayList<String> als=new ArrayList<String>();
 		
 		
-		while(data.next()) {
+		while(dataCache.next()) {
 			
-			als.add(data.get());
+			als.add(dataCache.get());
 			
 		}
 		
@@ -365,10 +333,11 @@ public class DataSession implements AutoCloseable {
 	//获取行列表
 	public KeyList getKeyList(String key){
 		
-		return this.data.getKeyList(key);	
+		return this.dataCache.getKeyList(key);	
 		
 	}
 
+	
 	
 	
 	

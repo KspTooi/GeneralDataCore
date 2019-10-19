@@ -3,9 +3,7 @@ package uk.iksp.v7.Factory;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentLinkedQueue;
-
 import uk.iksp.v7.Session.DataSession;
-import uk.iksp.v7.Session.InputStreamReaderSession;
 
 public class DataSessionFactory{
 	
@@ -30,15 +28,7 @@ public class DataSessionFactory{
 
 	}
 	
-	//打开一个输入流读取Session
-	public synchronized InputStreamReaderSession openInputStreamReaderSession(){
-		
-		
-		
-		
-		
-		return null;
-	}
+
 	
 	
 	

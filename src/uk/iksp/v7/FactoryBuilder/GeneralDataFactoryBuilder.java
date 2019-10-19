@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import uk.iksp.v7.Factory.DataSessionFactory;
+import uk.iksp.v7.Factory.StreamFactory;
 import uk.iksp.v7.Session.DataSession;
 import uk.iksp.v7.Xml.XmlUtil;
 import uk.isp.v7.main.DataCore;
@@ -31,6 +32,12 @@ public class GeneralDataFactoryBuilder{
 		
 		return new DataSessionFactory(SessionPoolSize);	
 		
+	}
+	
+	
+	//¹¹½¨StreamFactory
+	public StreamFactory buildStreamFactory(){
+		return new StreamFactory();
 	}
 	
 	

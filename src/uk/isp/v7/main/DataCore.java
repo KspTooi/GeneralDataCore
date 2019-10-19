@@ -15,14 +15,13 @@ public class DataCore {
 	}
 	
 	
-	public static final String gdc_Version="V7.15-E";
+	public static final String gdc_Version="V7.15-F";
 	
 	public static LogManager LogManager=new gdcLog();
 	
 	public static String getVersion() {
 		return gdc_Version;
 	}
-	
 	
 	
 }
