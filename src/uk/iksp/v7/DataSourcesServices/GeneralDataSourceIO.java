@@ -53,17 +53,9 @@ public class GeneralDataSourceIO extends StreamDataSourceIO{
 	//写GDC实体至文件
 	public void updateGeneralDataEntity(File file,GeneralDataEntity entity){
 		
+
 		
-		FileOutputStream fos = null;
-		
-		try {
-			fos = new FileOutputStream(file);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		
-		this.writeGeneralDataEntity(fos, entity);
+		this.writeGeneralDataEntity(file, entity);
 		
 	}
 	

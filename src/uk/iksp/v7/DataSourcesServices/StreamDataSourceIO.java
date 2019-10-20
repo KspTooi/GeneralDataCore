@@ -1,6 +1,7 @@
 package uk.iksp.v7.DataSourcesServices;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -48,6 +49,43 @@ public class StreamDataSourceIO {
 	
 	
 	//从流写入GDC实体
+	public void writeGeneralDataEntity(File f,GeneralDataEntity entity){
+		
+
+		
+		//重置光标
+		entity.reset();
+		
+		try{
+			
+			//获取打印流
+			PrintWriter pw=new PrintWriter(f,"UTF-8");
+			
+			String content="";
+			
+			content = entity.getFirst();
+			
+			while(entity.next()){
+				
+				content=content+"\r\n"+entity.get();
+				
+			}
+			
+			pw.println(content);				
+			pw.flush();
+			pw.close();
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			DataCore.LogManager.logError("写入输出流时出错! at writeGeneralDataEntity");
+		}	
+		
+	}
+	
+	
+	
+	//从流写入GDC实体
 	public void writeGeneralDataEntity(OutputStream os,GeneralDataEntity entity){
 		
 		//获取打印流
@@ -90,6 +128,28 @@ public class StreamDataSourceIO {
 		try{
 			
 			PrintWriter pw=new PrintWriter(os);	
+			
+			pw.println(str);		
+			
+			pw.flush();
+			pw.close();
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			DataCore.LogManager.logError("写入输出流时出错! at writeFile");
+		}	
+		
+		
+	}
+	
+	//从流写入文件
+	public void writeFile(File os,String str){
+		
+		
+		try{
+			
+			PrintWriter pw=new PrintWriter(os,"UTF-8");	
 			
 			pw.println(str);		
 			
