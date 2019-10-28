@@ -40,6 +40,43 @@ public class GeneralDataFactoryBuilder{
 		return new StreamFactory();
 	}
 	
+	//构建SqlSessionFactory - 使用外部资源文件构建
+	public SqlSessionFactory buildSqlSessionFactory(File connectUrl,String resourceUrl){
+		
+		
+		DataSessionFactory df = this.buildDataFactory(4);
+		
+		
+		DataSession os = df.openSession(connectUrl);
+		
+		//获取参数
+		String url = os.get("url");
+		String userName = os.get("userName");
+		String passWord = os.get("passWord");
+		String poolMaximumActiveConnections = os.get("poolMaximumActiveConnections");
+		
+		XmlUtil.setXmlParameter(resourceUrl,url, userName, passWord, poolMaximumActiveConnections);
+		
+		os.release();
+		
+		try {
+			
+			InputStreamReader isr=new InputStreamReader(new FileInputStream(new File(resourceUrl)));
+				
+			SqlSessionFactory ssf = ssfb.build(isr);
+			
+			return ssf;
+			
+			
+		} catch (FileNotFoundException e) {
+			DataCore.LogManager.logError("构建SqlSession时错误! - 文件系统错误!");
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	
 	
 	//构建SqlSessionFactory - 从文件构建
 	public SqlSessionFactory buildSqlSessionFactory(File file){
@@ -59,9 +96,7 @@ public class GeneralDataFactoryBuilder{
 		
 		os.release();
 		
-		
 		try {
-			
 			
 			InputStreamReader isr=new InputStreamReader(new FileInputStream(new File("GeneralDataCore/GeneralDataCore-Config.xml")));
 				

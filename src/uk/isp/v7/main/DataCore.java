@@ -10,12 +10,12 @@ public class DataCore {
 		
 		System.out.println("GeneralDataCore°æ±¾:"+DataCore.gdc_Version);
 		
-		System.out.println("GeneralDataCore - Developer Version");
+		System.out.println("GeneralDataCore - P");
 		
 	}
 	
 	
-	public static final String gdc_Version="V7.15-G";
+	public static final String gdc_Version="V7.19-P";
 	
 	public static LogManager LogManager=new gdcLog();
 	

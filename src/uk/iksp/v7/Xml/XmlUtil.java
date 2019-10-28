@@ -17,6 +17,7 @@ public class XmlUtil{
 	
 	
 	
+	
 	//保存Xml文件至资源目录
 	private static void saveXml(Document doc){
 		
@@ -45,6 +46,57 @@ public class XmlUtil{
 		}	
 		
 	}
+	
+	
+	//保存Xml文件至外部目录
+	public static void saveXml(Document doc,String str){
+		
+		
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		
+		try {
+			
+			Transformer transformer = transformerFactory.newTransformer();
+			
+			DOMSource domSource = new DOMSource(doc);		
+			
+		    transformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_PUBLIC, doc.getDoctype().getPublicId());    
+		    transformer.setOutputProperty(javax.xml.transform.OutputKeys.DOCTYPE_SYSTEM, doc.getDoctype().getSystemId());  
+
+		    File f=new File(str);
+			
+			StreamResult reStreamResult = new StreamResult(f);
+			
+			transformer.transform(domSource, reStreamResult);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	//从外部资源读取Xml
+	public static Document readXmlasDocument(String str){
+		
+		try {
+			
+			DocumentBuilder newDocumentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			
+			Document doc = newDocumentBuilder.parse(new File(str));
+			
+			return doc;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
+	
+	
 	
 	//从包资源读取Xml
 	private static Document readXmlasDocument(){
@@ -96,6 +148,24 @@ public class XmlUtil{
 	}
 	
 	
+	
+	//设置外部的资源
+	public static void setXmlParameter(String resources,String url,String userName,String passWord,String poolMaximumActiveConnections){
+		
+		Document doc = readXmlasDocument(resources);
+		
+		NodeList nl = getPropertyElement(doc);
+		
+		nl.item(1).getAttributes().item(1).setNodeValue(url);
+		
+		nl.item(2).getAttributes().item(1).setNodeValue(userName);
+		
+		nl.item(3).getAttributes().item(1).setNodeValue(passWord);
+		
+		nl.item(4).getAttributes().item(1).setNodeValue(poolMaximumActiveConnections);
+		
+		saveXml(doc,resources);
+	}
 	
 	
 	//设置
