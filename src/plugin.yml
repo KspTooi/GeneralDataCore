@@ -1,4 +1,4 @@
-name: GeneralDataCoreV6
-main: com.ksptooi.gdc.BukkitService.BukkitSupport
-version: 6
+name: GeneralDataCoreV7
+main: com.ksptooi.v1.BukkitService.BukkitSupport
+version: 7
 commands:
