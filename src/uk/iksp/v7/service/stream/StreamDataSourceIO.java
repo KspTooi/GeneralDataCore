@@ -1,4 +1,4 @@
-package uk.iksp.v7.DataSourcesServices;
+package uk.iksp.v7.service.stream;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +8,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import com.ksptooi.v3.Entity.GeneralDataEntity;
-import uk.isp.v7.main.DataCore;
+
+import uk.iksp.v7.main.DataCore;
 
 public class StreamDataSourceIO {
 	

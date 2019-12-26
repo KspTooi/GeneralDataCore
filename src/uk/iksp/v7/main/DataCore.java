@@ -1,4 +1,4 @@
-package uk.isp.v7.main;
+package uk.iksp.v7.main;
 
 import com.ksptooi.v5.Log.LogManager;
 import com.ksptooi.v5.Log.gdcLog;
@@ -10,12 +10,12 @@ public class DataCore {
 		
 		System.out.println("GeneralDataCore°æ±¾:"+DataCore.gdc_Version);
 		
-		System.out.println("GeneralDataCore - P");
+		System.out.println("GeneralDataCore - A");
 		
 	}
 	
 	
-	public static final String gdc_Version="V7.19-P";
+	public static final String gdc_Version="V7.21-A";
 	
 	public static LogManager LogManager=new gdcLog();
 	

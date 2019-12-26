@@ -1,9 +1,9 @@
-package uk.iksp.v7.Factory;
+package uk.iksp.v7.session.factory;
 
 import java.io.InputStream;
 
-import uk.iksp.v7.Session.InputStreamDownloadSession;
-import uk.iksp.v7.Session.InputStreamReaderSession;
+import uk.iksp.v7.session.stream.InputStreamDownloadSession;
+import uk.iksp.v7.session.stream.InputStreamReaderSession;
 
 public class StreamFactory {
 

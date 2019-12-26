@@ -1,14 +1,15 @@
-package uk.iksp.v7.Factory;
+package uk.iksp.v7.session.factory;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import uk.iksp.v7.Session.DataSession;
+
+import uk.iksp.v7.session.gdata.GDataSession;
 
 public class DataSessionFactory{
 	
 	
-	private ConcurrentLinkedQueue<DataSession> listDataSession = new ConcurrentLinkedQueue<DataSession>();
+	private ConcurrentLinkedQueue<GDataSession> listDataSession = new ConcurrentLinkedQueue<GDataSession>();
 	
 	private int poolInitSize=32;
 	
@@ -20,7 +21,7 @@ public class DataSessionFactory{
 
 		for (int i = 0; i < this.poolInitSize; i++) {
 
-			DataSession ds = new DataSession(this);
+			GDataSession ds = new GDataSession(this);
 
 			listDataSession.add(ds);
 
@@ -33,15 +34,15 @@ public class DataSessionFactory{
 	
 	
 	//打开一个数据Session
-	public synchronized DataSession openSession(File file) {
+	public synchronized GDataSession openSession(File file) {
 		
 		if(listDataSession.size() > 0) {
 			
-			DataSession DataSession = listDataSession.poll();
+			GDataSession GDataSession = listDataSession.poll();
 			
-			DataSession.assign(this,file);
+			GDataSession.assign(this,file);
 			
-			return DataSession;
+			return GDataSession;
 		}
 		
 		throw new RuntimeException("没有可分配的DataSession!");		
@@ -63,23 +64,23 @@ public class DataSessionFactory{
 			e.printStackTrace();
 		}
 			
-		DataSession DataSession = this.openSession(file);
+		GDataSession GDataSession = this.openSession(file);
 		
-		DataSession.put("@Type", "GeneralDataCore");
-		DataSession.put("@Version", "v7");
-		DataSession.addline(" ");
-		DataSession.release();
+		GDataSession.put("@Type", "GeneralDataCore");
+		GDataSession.put("@Version", "v7");
+		GDataSession.addline(" ");
+		GDataSession.release();
 		
 		return true;	
 	}
 	
 	
 	//getseter
-	public ConcurrentLinkedQueue<DataSession> getListDataSession() {
+	public ConcurrentLinkedQueue<GDataSession> getListDataSession() {
 		return listDataSession;
 	}
 
-	public void setListDataSession(ConcurrentLinkedQueue<DataSession> listDataSession) {
+	public void setListDataSession(ConcurrentLinkedQueue<GDataSession> listDataSession) {
 		this.listDataSession = listDataSession;
 	}
 

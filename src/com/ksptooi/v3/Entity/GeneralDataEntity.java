@@ -2,7 +2,7 @@ package com.ksptooi.v3.Entity;
 
 import java.util.ArrayList;
 
-import uk.isp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore;
 
 public class GeneralDataEntity {
 

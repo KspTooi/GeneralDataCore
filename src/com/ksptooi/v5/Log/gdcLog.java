@@ -1,6 +1,6 @@
 package com.ksptooi.v5.Log;
 
-import uk.isp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore;
 
 public class gdcLog extends LogManager{
 

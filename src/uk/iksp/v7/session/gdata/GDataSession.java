@@ -1,12 +1,14 @@
-package uk.iksp.v7.Session;
+package uk.iksp.v7.session.gdata;
 
 import java.io.File;
 import java.util.ArrayList;
 import com.ksptooi.v3.Entity.GeneralDataListEntity;
 import com.ksptooi.v3.Entity.KeyList;
-import uk.iksp.v7.Factory.DataSessionFactory;
 
-public class DataSession extends Session{
+import uk.iksp.v7.session.common.AbstractGDataSession;
+import uk.iksp.v7.session.factory.DataSessionFactory;
+
+public class GDataSession extends AbstractGDataSession{
 
 	
 	private boolean isChange=false;
@@ -21,7 +23,7 @@ public class DataSession extends Session{
 	 
 	
 	//ππ‘Ï
-	public DataSession(DataSessionFactory fromFactory){
+	public GDataSession(DataSessionFactory fromFactory){
 		
 		this.fromFactory=fromFactory;
 		

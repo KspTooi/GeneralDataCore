@@ -1,4 +1,4 @@
-package uk.iksp.v7.FactoryBuilder;
+package uk.iksp.v7.session.factory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,12 +8,11 @@ import java.io.InputStreamReader;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import uk.iksp.v7.Factory.DataSessionFactory;
-import uk.iksp.v7.Factory.StreamFactory;
-import uk.iksp.v7.Session.DataSession;
 import uk.iksp.v7.Xml.XmlUtil;
-import uk.isp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore;
+import uk.iksp.v7.session.gdata.GDataSession;
 
+@Deprecated
 public class GeneralDataFactoryBuilder{
 
 	
@@ -47,7 +46,7 @@ public class GeneralDataFactoryBuilder{
 		DataSessionFactory df = this.buildDataFactory(4);
 		
 		
-		DataSession os = df.openSession(connectUrl);
+		GDataSession os = df.openSession(connectUrl);
 		
 		//获取参数
 		String url = os.get("url");
@@ -84,7 +83,7 @@ public class GeneralDataFactoryBuilder{
 		
 		DataSessionFactory df = this.buildDataFactory(4);
 		
-		DataSession os = df.openSession(file);
+		GDataSession os = df.openSession(file);
 		
 		//获取参数
 		String url = os.get("url");
@@ -98,7 +97,7 @@ public class GeneralDataFactoryBuilder{
 		
 		try {
 			
-			InputStreamReader isr=new InputStreamReader(new FileInputStream(new File("GeneralDataCore/GeneralDataCore-Config.xml")));
+			InputStreamReader isr=new InputStreamReader(new FileInputStream(new File("./GeneralDataCore/GeneralDataCore-Config.xml")));
 				
 			SqlSessionFactory ssf = ssfb.build(isr);
 			

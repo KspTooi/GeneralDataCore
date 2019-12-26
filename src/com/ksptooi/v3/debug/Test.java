@@ -3,10 +3,11 @@ package com.ksptooi.v3.debug;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import uk.iksp.v7.Factory.StreamFactory;
-import uk.iksp.v7.FactoryBuilder.GeneralDataFactoryBuilder;
-import uk.iksp.v7.Session.InputStreamDownloadSession;
+import uk.iksp.v7.session.factory.GeneralDataFactoryBuilder;
+import uk.iksp.v7.session.factory.StreamFactory;
+import uk.iksp.v7.session.stream.InputStreamDownloadSession;
 
+@SuppressWarnings("deprecation")
 public class Test {
 
 

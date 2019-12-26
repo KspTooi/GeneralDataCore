@@ -1,11 +1,11 @@
-package uk.iksp.v7.Session;
+package uk.iksp.v7.session.stream;
 
 import java.io.IOException;
 import java.io.InputStream;
+import uk.iksp.v7.session.common.AbstractStreamSession;
 
 
-
-public class InputStreamReaderSession extends Session{
+public class InputStreamReaderSession extends AbstractStreamSession{
 
 	
 	

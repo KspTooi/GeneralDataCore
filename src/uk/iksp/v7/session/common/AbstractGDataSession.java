@@ -1,4 +1,4 @@
-package uk.iksp.v7.Session;
+package uk.iksp.v7.session.common;
 
 import java.io.File;
 import java.io.InputStream;
@@ -8,19 +8,18 @@ import com.ksptooi.v3.Entity.GeneralDataEntity;
 import com.ksptooi.v3.Entity.GeneralDataListEntity;
 import com.ksptooi.v3.Entity.KeyList;
 
-import uk.iksp.v7.DataSourcesServices.GeneralDataSourceIO;
-import uk.iksp.v7.Factory.DataSessionFactory;
+import uk.iksp.v7.service.gdata.GeneralDataSourceIO;
+import uk.iksp.v7.session.factory.DataSessionFactory;
 
-public abstract class Session implements AutoCloseable{
+public abstract class AbstractGDataSession implements AutoCloseable{
 	
 	
 	
 	//数据缓存
-	GeneralDataEntity dataCache=null;
-	
+	public GeneralDataEntity dataCache=null;
 	
 	//IO
-	GeneralDataSourceIO io= new GeneralDataSourceIO();
+	public GeneralDataSourceIO io= new GeneralDataSourceIO();
 	
 	
 	//FromFactory
@@ -34,9 +33,8 @@ public abstract class Session implements AutoCloseable{
 	
 	
 	//分配
-	public void assign(DataSessionFactory df,File dataSources){
-		
-	}
+	public abstract void assign(DataSessionFactory df,File dataSources);
+	
 	
 	//分配
 	public void assign(DataSessionFactory df,InputStream dataSources){

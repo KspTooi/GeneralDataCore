@@ -1,4 +1,4 @@
-package uk.iksp.v7.DataSourcesServices;
+package uk.iksp.v7.service.gdata;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,7 +9,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import com.ksptooi.v3.Entity.GeneralDataEntity;
 import uk.iksp.v6.CharSet.Detector;
-import uk.isp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore;
+import uk.iksp.v7.service.stream.StreamDataSourceIO;
 
 public class GeneralDataSourceIO extends StreamDataSourceIO{
 
