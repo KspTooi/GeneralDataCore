@@ -149,7 +149,7 @@ public class GeneralDataEntity {
 				
 		}
 		
-		DataCore.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
+		DataCore.logManager.logWarning("文件系统错误! 未找到Key - " + key);
 		
 		return null;
 		
@@ -194,7 +194,7 @@ public class GeneralDataEntity {
 		this.reset();
 		
 		if(al.size()==0){
-			DataCore.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
+			DataCore.logManager.logWarning("文件系统错误! 未找到Key - " + key);
 			return null;
 		}
 		
@@ -227,13 +227,7 @@ public class GeneralDataEntity {
 		
 		this.reset();	
 		
-		
-		
 	}
-	
-	
-	
-	
 	
 	
 }

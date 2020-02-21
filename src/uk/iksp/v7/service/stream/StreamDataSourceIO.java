@@ -36,7 +36,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("读取输入流时出错! at readAsGeneralDataEntity");
+			DataCore.logManager.logError("读取输入流时出错! at readAsGeneralDataEntity");
 		}
 		
 		return new GeneralDataEntity(List);
@@ -79,7 +79,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeGeneralDataEntity");
+			DataCore.logManager.logError("写入输出流时出错! at writeGeneralDataEntity");
 		}	
 		
 	}
@@ -114,7 +114,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeGeneralDataEntity");
+			DataCore.logManager.logError("写入输出流时出错! at writeGeneralDataEntity");
 		}	
 		
 	}
@@ -138,7 +138,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeFile");
+			DataCore.logManager.logError("写入输出流时出错! at writeFile");
 		}	
 		
 		
@@ -160,7 +160,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeFile");
+			DataCore.logManager.logError("写入输出流时出错! at writeFile");
 		}	
 		
 		

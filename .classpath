@@ -7,7 +7,5 @@
 	<classpathentry exported="true" kind="lib" path="Lib/chardet-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/antlr-2.7.4.jar"/>
 	<classpathentry kind="lib" path="Lib/mysql-JDBC.jar"/>
-	<classpathentry kind="lib" path="E:/1300索引/MineCraft Server/1.7.10[TH]/Thermos-1.7.10-1614-57-server.jar"/>
-	<classpathentry kind="lib" path="Lib/mybatis-3.2.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

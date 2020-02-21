@@ -8,19 +8,17 @@ public class DataCore {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("GeneralDataCore°æ±¾:"+DataCore.gdc_Version);
-		
-		System.out.println("GeneralDataCore - A");
+		System.out.println("GeneralDataCore°æ±¾:"+DataCore.version);
+		System.out.println("GeneralDataCore - Pre");
 		
 	}
 	
+	public static final String version="V7.23-P";
 	
-	public static final String gdc_Version="V7.21-A";
-	
-	public static LogManager LogManager=new gdcLog();
+	public static LogManager logManager=new gdcLog();
 	
 	public static String getVersion() {
-		return gdc_Version;
+		return version;
 	}
 	
 	

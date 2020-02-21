@@ -8,7 +8,7 @@ public class gdcLog extends LogManager{
 	//ππ‘Ï
 	public gdcLog(){
 		
-		this.setPrefix("[GeneralDataCore"+DataCore.gdc_Version+"]");
+		this.setPrefix("[GeneralDataCore"+DataCore.version+"]");
 		
 	}
 	

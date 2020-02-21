@@ -105,7 +105,7 @@ public class GeneralDataSourceIO extends StreamDataSourceIO{
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("文件系统错误 at getFileKey");
+			DataCore.logManager.logError("文件系统错误 at getFileKey");
 		}
 		
 		
