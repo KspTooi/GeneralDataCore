@@ -2,21 +2,21 @@ package com.ksptooi.udc.main;
 
 import java.io.IOException;
 
-import com.ksptooi.udc.entity.UnityData;
+import com.ksptooi.udc.entity.UniversalData;
 import com.ksptooi.udc.io.UdcRead;
 
-public class UnityDataCore {
+public class UniversalDataCore {
 
 	
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println("UnityDataCore°æ±¾:"+UnityDataCore.version);
+		System.out.println("UnityDataCore°æ±¾:"+UniversalDataCore.version);
 		
 		System.out.println("UnityDataCore - Pre");
 		
 //		System.out.println(Parser.toValue("key1=A555SA=SAS"));
 		
-		UnityData udf = UdcRead.readAsUnityData("C://asmc_core/asmc.conf");
+		UniversalData udf = UdcRead.readAsUniversalData("C://asmc_core/asmc.conf");
 		
 //		for(String str:udf.getContent()) {
 //			System.out.println(str);
@@ -27,6 +27,6 @@ public class UnityDataCore {
 		
 	}
 	
-	public final static String version = "7.23-P";
+	public final static String version = "7.26-P";
 	
 }

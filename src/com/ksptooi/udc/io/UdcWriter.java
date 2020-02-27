@@ -4,12 +4,12 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 
-import com.ksptooi.udc.entity.UnityData;
+import com.ksptooi.udc.entity.UniversalData;
 
 public class UdcWriter {
 
 	
-	public static void writeUnityData(UnityData ud) throws IOException {
+	public static void writeUniversalData(UniversalData ud) throws IOException {
 		
 		BufferedWriter nbw = Files.newBufferedWriter(ud.getPath(), ud.getCharset());
 		

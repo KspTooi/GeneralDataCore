@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import com.ksptooi.udc.io.UdcWriter;
 import com.ksptooi.udc.parser.Parser;
 
-public class UnityData {
+public class UniversalData {
 	
 	private Charset charset = null;
 	
@@ -16,7 +16,7 @@ public class UnityData {
 	
 	private Path path = null;
 	
-	public UnityData(ArrayList<String> content,Path path,Charset cs) {
+	public UniversalData(ArrayList<String> content,Path path,Charset cs) {
 		this.content = content;
 		this.path = path;
 		this.charset = cs;
@@ -167,7 +167,7 @@ public class UnityData {
 	 * @throws IOException 
 	 */
 	public void flush() throws IOException {
-		UdcWriter.writeUnityData(this);
+		UdcWriter.writeUniversalData(this);
 	}
 
 

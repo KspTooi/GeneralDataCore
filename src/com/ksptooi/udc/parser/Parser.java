@@ -11,9 +11,6 @@ public class Parser {
 		
 		int valueMarkIndex = str.indexOf("=");
 		
-		
-		
-		
 		return str.substring(0, valueMarkIndex);
 		
 	}
