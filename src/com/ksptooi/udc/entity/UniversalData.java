@@ -4,25 +4,28 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ksptooi.udc.io.UdcWriter;
 import com.ksptooi.udc.parser.Parser;
 
-public class UniversalData {
+public class UniversalData extends BasicData implements AutoCloseable{
 	
-	private Charset charset = null;
-	
-	private ArrayList<String> content = null;
-	
-	private Path path = null;
-	
-	public UniversalData(ArrayList<String> content,Path path,Charset cs) {
-		this.content = content;
-		this.path = path;
+
+	//实例化通用数据
+	public UniversalData(List<String> content,Path path,Charset cs) {
+		this.content = (ArrayList<String>) content;
+		this.sourcePath = path;
 		this.charset = cs;
 	}
 	
-
+	public UniversalData(ArrayList<String> content,Path path,Charset cs) {
+		this.content = content;
+		this.sourcePath = path;
+		this.charset = cs;
+	}
+	
+	
 	/**
 	 * 获取指定的key的索引位置
 	 * @param key
@@ -157,37 +160,30 @@ public class UniversalData {
 		
 	}
 	
-	public ArrayList<String> getContent(){
-		return this.content;
+	/**
+	 * 将UniversalData[通用数据]转换为PlaneData[平面数据]
+	 * @return 返回PlaneData[平面数据]实例
+	 */
+	public PlaneData toPlaneData() {
+		
+		BasicData bd = (BasicData)this;
+		PlaneData pd = (PlaneData)bd;
+		return pd;
 	}
-	
 	
 	/**
 	 * 立即同步更新至文件
 	 * @throws IOException 
 	 */
-	public void flush() throws IOException {
+	public void flush() {
+		UdcWriter.writeUniversalDataNE(this);
+	}
+
+	
+	@Override
+	public void close() throws Exception {
 		UdcWriter.writeUniversalData(this);
 	}
 
-
-
-
-	public Path getPath() {
-		return path;
-	}
-
-
-	public Charset getCharset() {
-		return charset;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

@@ -11,9 +11,29 @@ import com.ksptooi.udc.entity.UniversalData;
 
 import uk.iksp.v6.CharSet.Detector;
 
-public class UdcRead {
+public class UdcReader {
 
 	private static Detector detector=new Detector();
+	
+
+	/**
+	 * 将文件读作可操作的UniversalData实例 [不抛出异常]
+	 * @param filePath 文件路径
+	 * @return UnityData实例
+	 */
+	public static UniversalData read(String filePath) {
+		
+		UniversalData udf = null;
+		
+		try {
+			udf = readAsUniversalData(filePath);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return udf;
+	}
+	
 	
 	/**
 	 * 将文件读作可操作的UniversalData实例
@@ -29,6 +49,24 @@ public class UdcRead {
 		
 		UniversalData udf = new UniversalData((ArrayList<String>)Files.readAllLines(path, encode),path,encode);
 	
+		return udf;
+	}
+	
+	/**
+	 * 将文件读作可操作的UniversalData实例 [不抛出异常]
+	 * @param filePath 文件路径
+	 * @return UnityData实例
+	 */
+	public static UniversalData readAsUniversalDataNE(String filePath) {
+		
+		UniversalData udf = null;
+		
+		try {
+			udf = readAsUniversalData(filePath);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return udf;
 	}
 	
