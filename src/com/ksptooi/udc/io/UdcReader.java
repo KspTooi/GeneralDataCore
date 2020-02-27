@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import com.ksptooi.udc.entity.UniversalData;
+import com.ksptooi.udc.entity.data.UniversalData;
 
 import uk.iksp.v6.CharSet.Detector;
 

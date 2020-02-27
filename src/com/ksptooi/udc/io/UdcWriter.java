@@ -3,7 +3,8 @@ package com.ksptooi.udc.io;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import com.ksptooi.udc.entity.UniversalData;
+
+import com.ksptooi.udc.entity.data.UniversalData;
 
 public class UdcWriter {
 

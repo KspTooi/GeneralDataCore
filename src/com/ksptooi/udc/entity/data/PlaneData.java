@@ -1,4 +1,4 @@
-package com.ksptooi.udc.entity;
+package com.ksptooi.udc.entity.data;
 
 import com.ksptooi.udc.io.UdcWriter;
 

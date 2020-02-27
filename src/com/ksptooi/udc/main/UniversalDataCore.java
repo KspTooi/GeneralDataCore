@@ -1,7 +1,8 @@
 package com.ksptooi.udc.main;
 
 import java.io.IOException;
-import com.ksptooi.udc.entity.UniversalData;
+
+import com.ksptooi.udc.entity.data.UniversalData;
 import com.ksptooi.udc.io.UdcReader;
 
 public class UniversalDataCore {
@@ -9,9 +10,9 @@ public class UniversalDataCore {
 	
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println("UnityDataCore°æ±¾:"+UniversalDataCore.version);
+		System.out.println("UniversalDataCore - "+UniversalDataCore.version);
 		
-		System.out.println("UnityDataCore - Pre");
+		System.out.println("UniversalDataCore - Pre");
 		
 //		System.out.println(Parser.toValue("key1=A555SA=SAS"));
 		
@@ -23,11 +24,12 @@ public class UniversalDataCore {
 		
 		
 		System.out.println(udf.get("key5"));
-		udf.set("key5", "lolo");
+		udf.set("key5", "lolo1111");
+		
 		udf.flush();
 		
 	}
 	
-	public final static String version = "7.31-P";
+	public final static String version = "8.0-P";
 	
 }

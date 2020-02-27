@@ -1,4 +1,4 @@
-package com.ksptooi.udc.entity;
+package com.ksptooi.udc.entity.data;
 
 import java.nio.charset.Charset;
 import java.nio.file.Path;

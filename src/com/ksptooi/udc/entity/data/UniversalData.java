@@ -1,4 +1,4 @@
-package com.ksptooi.udc.entity;
+package com.ksptooi.udc.entity.data;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
