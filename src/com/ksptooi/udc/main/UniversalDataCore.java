@@ -27,6 +27,6 @@ public class UniversalDataCore {
 		
 	}
 	
-	public final static String version = "7.26-P";
+	public final static String version = "7.30-P";
 	
 }
