@@ -23,13 +23,13 @@ public class UniversalDataCore {
 //		}
 		
 		
-		System.out.println(udf.get("key5"));
-		udf.set("key5", "lolo1111");
-		
-		udf.flush();
+//		System.out.println(udf.get("key5"));
+//		udf.set("key5", "lolo1111");
+//		
+//		udf.flush();
 		
 	}
 	
-	public final static String version = "8.0-P";
+	public final static String version = "8.0-P(15)";
 	
 }
