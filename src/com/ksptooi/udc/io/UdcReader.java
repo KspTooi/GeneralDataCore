@@ -48,7 +48,8 @@ public class UdcReader {
 		Charset encode = detector.nDetector(path.toFile());
 		
 		UniversalData udf = new UniversalData((ArrayList<String>)Files.readAllLines(path, encode),path,encode);
-	
+		
+		
 		return udf;
 	}
 	

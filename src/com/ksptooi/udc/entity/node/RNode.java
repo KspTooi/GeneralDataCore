@@ -1,40 +1,43 @@
 package com.ksptooi.udc.entity.node;
 
 import java.util.ArrayList;
-
 import com.ksptooi.udc.parser.NodeParser;
-import com.ksptooi.udc.parser.Parser;
+import com.ksptooi.udc.parser.legacy.LegacyParser;
 
-public class Node {
+/**
+ * 根节点 [兼容旧格式的节点]
+ * @author 90N
+ */
+public class RNode {
 
 	
 	private String name = null;
 	
-	//缓存的附加数据
+	//缓存的内容
 	private ArrayList<String> content = null;
 	
 	//缓存的节点
 	private ArrayList<Node> nodeList = null;
 	
 	
-	public Node(String name,ArrayList<String> content) {
+	public RNode(String name,ArrayList<String> content) {
 		
 		this.name = name;
-		
 		this.content = content;
 		
 		//创建子节点
 		String data = "";
 		
 		for(String s:content) {
-			data = data + s;
+			data = data + s + "\r\n";
 		}
+		
+		System.out.println(data);
 		
 		nodeList = NodeParser.parserNodeList(data);
 		
 		//过滤文本
-		this.content = NodeParser.clearNodeData(this.content);
-		
+		this.content = NodeParser.clearNodeBlock(data);
 	}
 	
 	
@@ -55,7 +58,7 @@ public class Node {
 				continue;
 			}
 			
-			currentKey = Parser.toKey(content.get(i));
+			currentKey = LegacyParser.toKey(content.get(i));
 			
 			if(currentKey.equals(key)){
 				return i;
@@ -80,7 +83,7 @@ public class Node {
 			return null;
 		}
 		
-		return Parser.toValue(content.get(index));
+		return LegacyParser.toValue(content.get(index));
 		
 	}
 	

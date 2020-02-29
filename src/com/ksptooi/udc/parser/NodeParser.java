@@ -43,6 +43,69 @@ public class NodeParser {
 	
 	
 	/**
+	 * 找到下一个节点块
+	 * @return 返回一个包含节点块位置信息的数组
+	 */
+	public static int[] findNextNode(String str) {
+		
+		
+		int nodeNameStart = 0;
+		int nodeContentStart = 0;
+		int nodeEnd = 0;
+		int openedMark = 0;
+		
+		ArrayList<Node> nodeList = new ArrayList<Node>();
+		
+		
+		//找节点名称标识符
+		for(int i=0;i<str.length();i++) {
+			
+			nodeNameStart=str.indexOf("--",i);
+			
+			
+			//节点名称标识符
+			if(nodeNameStart!=-1) {
+							
+				nodeContentStart = str.indexOf("{",nodeNameStart);
+				openedMark++;
+				
+				//找节点结束符
+				for(int u=nodeContentStart+1;u<=str.length();u++) {
+					
+					if(str.charAt(u)=='{') {
+						openedMark++;
+					}
+					
+					if(str.charAt(u)=='}') {
+						openedMark--;
+					}
+					
+					if(openedMark<1){
+//						
+						i=u;
+						nodeEnd=u;
+						nodeList.add(NodeParser.toNode(str.substring(nodeNameStart,nodeEnd+1)));
+						break;
+					}
+					
+				}
+				
+				break;
+				
+			}
+			
+		}
+		
+		int[] out = {nodeNameStart,nodeEnd};
+		
+		return out;
+	}
+	
+	
+	
+	
+	
+	/**
 	 * 从字符串中解析出NodeList
 	 * @return 包含Node的集合
 	 */
@@ -103,117 +166,112 @@ public class NodeParser {
 			
 		}
 		
-		
-		
 		return nodeList;
 	}
 	
 	
+	/**
+	 * 过滤包含节点的文本
+	 */
+	public static ArrayList<String> clearNodeData(ArrayList<String> input) {
+		
+		boolean hasNode = false;
+		
+		for(int i=0;i<input.size();i++) {
+			
+			if(input.get(i).contains("--")) {
+				hasNode = true;
+			}
+			
+			if(hasNode) {
+				input.remove(i);
+				i--;
+			}
+			
+		}
+		
+		
+		return input;
+	}
 	
 	/**
-	 * 从字符串中解析出NodeList
-	 * @return 包含Node的集合
+	 * 过滤包含节点块的文本[并生成节点位置标识符]
 	 */
-//	public static ArrayList<Node> parserNodeList(String str) {
-//		
-//		System.out.println("总长:"+str.length());
-//		
-//		int nodeStart = 0;
-//		int nodeEnd = 0;
-//		
-//		int subNodeStart = 0;
-//		
-//		int subNodeFlagCount = 0;
-//		
-//		//找节点名称标识符
-//		for(int i=0;i<str.length();i++) {
-//			
-//			nodeStart=str.indexOf("--",i);
-//			
-//			
-//			//节点名称标识符
-//			if(nodeStart!=-1) {
-//				
-//				System.out.println("节点名标:"+nodeStart);
-//				
-//				i = nodeStart;
-//				
-//				//找节点结束符
-//				for(int u=nodeStart;u<=str.length();) {
-//					
-//					subNodeStart = str.indexOf("--",u+2);
-//						
-//					//判断记录子节点
-//					if(subNodeStart!=-1) {
-//						
-//						System.out.println("子节点位置:"+subNodeStart);
-//						u = subNodeStart+2;
-//						subNodeFlagCount++;
-//						
-//					}
-//					
-//					nodeEnd = str.indexOf("}",u);
-//					
-//					//判断记录结束符
-//					if(nodeEnd!=-1) {
-//						
-//						if(subNodeFlagCount>0) {
-//							u=nodeEnd+1;
-//							subNodeFlagCount--;
-//							continue;
-//						}
-//						i =nodeEnd+1;
-//						System.out.println("节点结束符:"+nodeEnd);
-//						break;
-//					}
-//					
-//				}
-//				
-//				
-//			}
-//			
-//			
-//			
-//		}
-//		
-//		
-//		
-//		
-//		return null;
-//	}
+	public static ArrayList<String> clearNodeBlock(String str) {
+		
+
+		String nodeBlock = null;
+		
+		int[] nodeLocation = null;
+		
+		while(true) {
+			
+			nodeLocation = NodeParser.findNextNode(str);
+			
+			//判断有无节点块Start标识符
+			if(nodeLocation[0] != -1) {
+				
+				//截取节点文本
+				nodeBlock = str.substring(nodeLocation[0],nodeLocation[1]+1);
+				
+				//替换中间文本
+				str = str.replace(nodeBlock, "{{"+toNode(nodeBlock).getName()+"}}");
+				
+				continue;
+			}
+			
+			break;
+			
+		}
+		
+		//处理元数据=>集合打包
+		String[] split = str.split(",");
+		
+		ArrayList<String> op = new ArrayList<String>();
+		
+		for(String s:split) {
+			op.add(s);
+		}
+		
+		return op;
+	}
+	
+	
 	
 	
 	public static void main(String[] args) {
 		
-//		Node node = toNode("GFDGFG");
-//		
-//		System.out.println(node.getName());
-//		
-//		for(String s:node.getContent()) {
-//			System.out.println(s);
-//		}
 		
-		ArrayList<Node> parserNodeList = parserNodeList("key1=5\r\n" + 
+		String str = "\r\n" + 
+				"key1=5\r\n" + 
 				"key2=10\r\n" + 
 				"\r\n" + 
-				"--node=>{\r\n" + 
+				"--node1=>{\r\n" + 
 				"\r\n" + 
-				"--node1_1=>{--node1_1=>{}},\r\n" + 
-				"--node1_2=>{},\r\n" + 
-				"\r\n" + 
+				"	\"n1k1\"=25,\r\n" + 
+				"	\"n1k2\"=35,\r\n" + 
+				"	\r\n" + 
+				"	--node1_1=>{\r\n" + 
+				"		\r\n" + 
+				"	}\r\n" + 
+				"	\r\n" + 
 				"}\r\n" + 
 				"\r\n" + 
 				"--node2=>{\r\n" + 
 				"\r\n" + 
-				"--node2_1=>{},\r\n" + 
-				"--node2_2=>{},\r\n" + 
 				"\r\n" + 
-				"}");
+				"\r\n" + 
+				"}\r\n" + 
+				"\r\n" + 
+				"key3=15";
 		
 		
+		ArrayList<String> clearNodeBlock = clearNodeBlock(str);
 		
-		System.out.println(parserNodeList.get(0).getName());
-		System.out.println(parserNodeList.get(0).getContent().get(2));
+		for(String s:clearNodeBlock) {
+			System.out.println(s);
+		}
+		
 		
 	}
 	
