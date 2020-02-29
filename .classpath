@@ -6,6 +6,5 @@
 	<classpathentry exported="true" kind="lib" path="Lib/jargs-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/chardet-1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="Lib/antlr-2.7.4.jar"/>
-	<classpathentry kind="lib" path="Lib/mysql-JDBC.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
