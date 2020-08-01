@@ -4,19 +4,15 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import com.ksptooi.generaldatacore.entity.data.DataMap;
 
 
 /**
  * 单例模式
  */
-public class FileDataInteface extends DataMap implements DataInterface {
+public class FileDataInteface implements DataInterface {
 
 	
-	private static final long serialVersionUID = 1L;
-	
-
 	Path path = null;
 	
 	DataMap dm = null;
@@ -79,6 +75,26 @@ public class FileDataInteface extends DataMap implements DataInterface {
 		
 		
 		return new FileDataInteface(p);
+	}
+
+
+
+	
+	/**
+	 * 取结果集
+	 */
+	@Override
+	public DataMap getDataMap() {
+		return null;
+	}
+
+
+	/**
+	 * 写结果集
+	 */
+	@Override
+	public void setDataMap(DataMap dm) {
+		
 	}
 
 	
