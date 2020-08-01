@@ -46,15 +46,16 @@ dependencies {
 	compile files('Lib/jargs-1.0.jar')
 
 	compile files('Lib/antlr-2.7.4.jar')
+	
+	// https://mvnrepository.com/artifact/log4j/log4j
+	compile group: 'log4j', name: 'log4j', version: '1.2.17'
+	
 }
 
 
 task download(type: Copy) {
-
     from configurations.runtime
-
     into 'lib'
-
 }
 
 
@@ -62,7 +63,7 @@ jar {
     manifest {
         attributes(
                 "Manifest-Version": 1.0,
-                "Main-Class": "com.ksptoo.gdc.GeneralDataCore")
+                "Main-Class": "com.ksptooi.generaldatacore.main.DataCore")
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     into('assets') {

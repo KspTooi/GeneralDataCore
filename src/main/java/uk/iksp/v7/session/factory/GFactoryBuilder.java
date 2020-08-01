@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import uk.iksp.v7.Xml.XmlUtil;
-import uk.iksp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore_Leagacy;
 import uk.iksp.v7.session.gdata.GDataSession;
 
 
@@ -69,7 +69,7 @@ public class GFactoryBuilder{
 			
 			
 		} catch (FileNotFoundException e) {
-			DataCore.LogManager.logError("构建SqlSession时错误! - 文件系统错误!");
+			DataCore_Leagacy.LogManager.logError("构建SqlSession时错误! - 文件系统错误!");
 			e.printStackTrace();
 			return null;
 		}
@@ -106,7 +106,7 @@ public class GFactoryBuilder{
 			
 			
 		} catch (FileNotFoundException e) {
-			DataCore.LogManager.logError("构建SqlSession时错误! - 文件系统错误!");
+			DataCore_Leagacy.LogManager.logError("构建SqlSession时错误! - 文件系统错误!");
 			e.printStackTrace();
 			return null;
 		}

@@ -2,7 +2,7 @@ package com.ksptooi.v3.Entity;
 
 import java.util.ArrayList;
 
-import uk.iksp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore_Leagacy;
 
 public class GeneralDataEntity {
 
@@ -149,7 +149,7 @@ public class GeneralDataEntity {
 				
 		}
 		
-		DataCore.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
+		DataCore_Leagacy.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
 		
 		return null;
 		
@@ -194,7 +194,7 @@ public class GeneralDataEntity {
 		this.reset();
 		
 		if(al.size()==0){
-			DataCore.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
+			DataCore_Leagacy.LogManager.logWarning("文件系统错误! 未找到Key - " + key);
 			return null;
 		}
 		

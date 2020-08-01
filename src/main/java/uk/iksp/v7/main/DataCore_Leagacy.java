@@ -3,12 +3,12 @@ package uk.iksp.v7.main;
 import com.ksptooi.v5.Log.LogManager;
 import com.ksptooi.v5.Log.gdcLog;
 
-public class DataCore {
+public class DataCore_Leagacy {
 
 	
 	public static void main(String[] args) {
 		
-		System.out.println("GeneralDataCore°æ±¾:"+DataCore.gdc_Version);
+		System.out.println("GeneralDataCore°æ±¾:"+DataCore_Leagacy.gdc_Version);
 		
 		System.out.println("GeneralDataCore - A");
 		

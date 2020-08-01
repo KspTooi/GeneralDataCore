@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import com.ksptooi.v3.Entity.GeneralDataEntity;
 
-import uk.iksp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore_Leagacy;
 
 public class StreamDataSourceIO {
 	
@@ -36,7 +36,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("读取输入流时出错! at readAsGeneralDataEntity");
+			DataCore_Leagacy.LogManager.logError("读取输入流时出错! at readAsGeneralDataEntity");
 		}
 		
 		return new GeneralDataEntity(List);
@@ -79,7 +79,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeGeneralDataEntity");
+			DataCore_Leagacy.LogManager.logError("写入输出流时出错! at writeGeneralDataEntity");
 		}	
 		
 	}
@@ -114,7 +114,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeGeneralDataEntity");
+			DataCore_Leagacy.LogManager.logError("写入输出流时出错! at writeGeneralDataEntity");
 		}	
 		
 	}
@@ -138,7 +138,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeFile");
+			DataCore_Leagacy.LogManager.logError("写入输出流时出错! at writeFile");
 		}	
 		
 		
@@ -160,7 +160,7 @@ public class StreamDataSourceIO {
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("写入输出流时出错! at writeFile");
+			DataCore_Leagacy.LogManager.logError("写入输出流时出错! at writeFile");
 		}	
 		
 		

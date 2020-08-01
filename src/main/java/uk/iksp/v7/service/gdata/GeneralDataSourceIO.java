@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import com.ksptooi.v3.Entity.GeneralDataEntity;
 import uk.iksp.v6.CharSet.Detector;
-import uk.iksp.v7.main.DataCore;
+import uk.iksp.v7.main.DataCore_Leagacy;
 import uk.iksp.v7.service.stream.StreamDataSourceIO;
 
 public class GeneralDataSourceIO extends StreamDataSourceIO{
@@ -105,7 +105,7 @@ public class GeneralDataSourceIO extends StreamDataSourceIO{
 			
 		}catch(Exception e){
 			e.printStackTrace();
-			DataCore.LogManager.logError("文件系统错误 at getFileKey");
+			DataCore_Leagacy.LogManager.logError("文件系统错误 at getFileKey");
 		}
 		
 		
