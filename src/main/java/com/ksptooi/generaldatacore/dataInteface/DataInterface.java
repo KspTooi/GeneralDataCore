@@ -8,7 +8,7 @@ public interface DataInterface {
 	
 	
 	/**
-	 * 数据接口
+	 * 数据接口 R
 	 */
 	
 	/**
@@ -16,15 +16,19 @@ public interface DataInterface {
 	 * @param key
 	 * @return 返回value 如果没有则返回空
 	 */
-	public String getString(String key);
-	
-	public Integer getInt(String key);
-	
-	public Boolean getBoolean(String key);
-	
-	public Float getFloat(String key);
-	
-	public Double getDouble(String key);
+	/*
+	 * public String get(String key);
+	 * 
+	 * public String getString(String key);
+	 * 
+	 * public Integer getInt(String key);
+	 * 
+	 * public Boolean getBoolean(String key);
+	 * 
+	 * public Float getFloat(String key);
+	 * 
+	 * public Double getDouble(String key);
+	 */
 
 	
 	/**
@@ -32,20 +36,29 @@ public interface DataInterface {
 	 * @param key
 	 * @return
 	 */
-	public ArrayList<String> getStringList(String key);
-	
-	public ArrayList<Integer> getIntegerList(String key);
-	
-	public ArrayList<Boolean> getBooleanList(String key);
-	
-	public ArrayList<Float> getFloatList(String key);
-	
-	public ArrayList<Double> getDoubleList(String key);
+	/*
+	 * public ArrayList<String> getStringList(String key);
+	 * 
+	 * public ArrayList<Integer> getIntegerList(String key);
+	 * 
+	 * public ArrayList<Boolean> getBooleanList(String key);
+	 * 
+	 * public ArrayList<Float> getFloatList(String key);
+	 * 
+	 * public ArrayList<Double> getDoubleList(String key);
+	 */
 	
 	
 	/**
 	 * 将平面文件读为map
 	 */
-	public DataMap getDataMap();
+	/* public DataMap getDataMap(); */
+	
+	
+	/**
+	 * 数据接口 W
+	 */
+	
+	
 	
 }

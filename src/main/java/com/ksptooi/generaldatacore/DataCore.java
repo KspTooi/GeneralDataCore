@@ -17,8 +17,7 @@ public class DataCore{
 		System.out.println("GeneralDataCore - Version:"+Storage.version);
 	}
 	
-	protected DataCore(){
-	}
+	protected DataCore(){}
 	
 	
 
