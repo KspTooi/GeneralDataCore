@@ -3,12 +3,13 @@ package com.ksptooi.generaldatacore.dataInteface;
 import java.util.ArrayList;
 import com.ksptooi.generaldatacore.entity.data.DataMap;
 
-public interface FileDataInterface {
+public interface DataInterface {
 
-	/**
-	 * 文件数据接口
-	 */
 	
+	
+	/**
+	 * 数据接口
+	 */
 	
 	/**
 	 * 通过指定的key获取平面文件中的Value
@@ -17,15 +18,14 @@ public interface FileDataInterface {
 	 */
 	public String getString(String key);
 	
-	public Integer getnt(String key);
+	public Integer getInt(String key);
 	
-	public boolean getBoolean(String key);
+	public Boolean getBoolean(String key);
 	
 	public Float getFloat(String key);
 	
 	public Double getDouble(String key);
-	
-	
+
 	
 	/**
 	 * 通过指定的key获取平面文件中的集合

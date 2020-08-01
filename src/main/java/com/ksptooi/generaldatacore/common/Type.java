@@ -11,13 +11,13 @@ public class Type {
 		try {
 			
 			i = Integer.valueOf(s);
+			return i;
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 		
-		return i;
 		
 	}
 	
