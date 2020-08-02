@@ -33,12 +33,6 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
 	
-	// https://mvnrepository.com/artifact/org.mybatis/mybatis
-	compile group: 'org.mybatis', name: 'mybatis', version: '3.2.8'
-	
-	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
-	
 	compile files('Lib/cpdetector_1.0.10.jar')
 	
 	compile files('Lib/chardet-1.0.jar')
@@ -63,7 +57,7 @@ jar {
     manifest {
         attributes(
                 "Manifest-Version": 1.0,
-                "Main-Class": "com.ksptooi.generaldatacore.main.DataCore")
+                "Main-Class": "com.ksptooi.generaldatacore.DataCore")
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     into('assets') {
