@@ -1,9 +1,12 @@
 package com.ksptooi.generaldatacore.dataInteface;
 
-import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+
 import com.ksptooi.generaldatacore.entity.data.DataMap;
 
 
@@ -20,45 +23,6 @@ public class FileDataInteface implements DataInterface {
 	
 	private FileDataInteface(Path path) {
 		this.path = path;
-	}
-	
-	
-	
-	public static FileDataInteface getFileDataInteface(String path) {
-		
-		
-		Path p = Paths.get(path);
-		
-		
-		if(Files.isDirectory(p)) {
-			return null;
-		}
-		
-		if( ! Files.exists(p)) {
-			return null;
-		}
-		
-		
-		return new FileDataInteface(p);
-		
-	}
-	
-	
-	
-	
-	public static FileDataInteface getFileDataInteface(File f) {
-		
-		Path p=f.toPath();
-		
-		if(Files.isDirectory(p)) {
-			return null;
-		}
-		
-		if( ! Files.exists(p)) {
-			return null;
-		}
-		
-		return new FileDataInteface(p);
 	}
 	
 	
@@ -85,7 +49,24 @@ public class FileDataInteface implements DataInterface {
 	 */
 	@Override
 	public DataMap getDataMap() {
-		return null;
+		
+		try {
+			
+			
+			ArrayList<String> allLine = (ArrayList<String>) Files.readAllLines(path);
+			
+			
+			DataMap dm = new DataMap(this,allLine);
+			
+			
+			return dm;
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 
@@ -95,6 +76,34 @@ public class FileDataInteface implements DataInterface {
 	@Override
 	public void setDataMap(DataMap dm) {
 		
+		
+		try {
+			
+			
+			Files.write(path, dm.string().getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
+		
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+
+	@Override
+	public ArrayList<String> getList() {
+		
+		
+		try {
+			
+			ArrayList<String> allLine = (ArrayList<String>) Files.readAllLines(path);
+			return allLine;
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	

@@ -2,40 +2,75 @@ package com.ksptooi.generaldatacore;
 
 import java.io.File;
 import java.nio.file.Path;
-
-import com.ksptooi.generaldatacore.common.Storage;
-import com.ksptooi.generaldatacore.dataInteface.DataInterface;
+import java.nio.file.Paths;
+import com.ksptooi.generaldatacore.common.Project;
 import com.ksptooi.generaldatacore.dataInteface.FileDataInteface;
+import com.ksptooi.generaldatacore.entity.data.DataMap;
+
 
 /**
  * 单例模式 GDC
  */
 public class DataCore{
 
+	
+	
+	
 
 	public static void main(String[] args) {
-		System.out.println("GeneralDataCore - Version:"+Storage.version);
+		System.out.println("GeneralDataCore - Version:"+Project.version);
 	}
 	
 	protected DataCore(){}
 	
 	
-
 	
 	/**
-	 * 获取数据接口
+	 * 获取数据对象
 	 */
-	public static DataInterface getDataInteface(String filePath){
-		return FileDataInteface.getFileDataInteface(filePath);
+	public static DataMap getDataMap(Path path,boolean autoMatic) {
+		
+		FileDataInteface dataInterface = FileDataInteface.getFileDataInteface(path);
+		
+		if(dataInterface == null) {
+			return null;
+		}
+		
+		DataMap dm = dataInterface.getDataMap();
+		
+		dm.setAutoMaticRead(autoMatic);
+		dm.setAutoMaticWrite(autoMatic);
+		
+		return dm;
+		
 	}
 	
-	public static DataInterface getDataInteface(File file){
-		return FileDataInteface.getFileDataInteface(file);
+	public static DataMap getDataMap(Path path) {
+		return getDataMap(path,false);
 	}
 	
-	public  static DataInterface getDataInteface(Path path){
-		return FileDataInteface.getFileDataInteface(path);
+	public static DataMap getDataMap(String filePath) {
+		return getDataMap(Paths.get(filePath),false);		
 	}
+	
+	public static DataMap getDataMap(File file) {
+		return getDataMap(file.toPath(),false);
+	}
+	
+	
+	public static DataMap getDataMap(String filePath,boolean automatic) {
+		return getDataMap(Paths.get(filePath),automatic);		
+	}
+	
+	public static DataMap getDataMap(File file,boolean automatic) {
+		return getDataMap(file.toPath(),automatic);
+	}
+
+
+	
+	
+	
+	
 	
 	
 	

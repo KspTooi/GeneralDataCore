@@ -6,12 +6,9 @@ public class gdcLog extends LogManager{
 
 	
 	//ππ‘Ï
-	public gdcLog(){
-		
-		this.setPrefix("[GeneralDataCore"+DataCore_Leagacy.gdc_Version+"]");
-		
+	public gdcLog(){		
+		this.setPrefix("[GeneralDataCore"+DataCore_Leagacy.gdc_Version+"]");		
 	}
-	
 	
 	
 	@Override
@@ -30,9 +27,5 @@ public class gdcLog extends LogManager{
 	public void logError(String Message) {	
 		System.out.println(this.getPrefix()+Message);
 	}
-
-	
-	
-	
 	
 }
