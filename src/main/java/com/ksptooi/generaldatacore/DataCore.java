@@ -14,8 +14,6 @@ import com.ksptooi.generaldatacore.entity.data.DataMap;
 public class DataCore{
 
 	
-	
-	
 
 	public static void main(String[] args) {
 		System.out.println("GeneralDataCore - Version:"+Project.version);
