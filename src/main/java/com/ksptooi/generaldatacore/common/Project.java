@@ -2,6 +2,6 @@ package com.ksptooi.generaldatacore.common;
 
 public class Project {
 
-	public static final String version = "V7.5-S";
+	public static final String version = "V7.6-A";
 	
 }
