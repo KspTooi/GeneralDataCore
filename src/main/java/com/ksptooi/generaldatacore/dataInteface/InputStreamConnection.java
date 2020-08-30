@@ -12,11 +12,17 @@ public class InputStreamConnection extends DataConnection{
     //ISC构造器
     public InputStreamConnection(InputStream is) {
         super(is, null);
+
+        //该流不支持写入操作
+        this.setSupportWrite(false);
     }
 
     public InputStreamConnection(InputStream is,String charset) {
         super(is, null);
         this.charset = charset;
+
+        //该流不支持写入操作
+        this.setSupportWrite(false);
     }
 
     /**
@@ -24,7 +30,12 @@ public class InputStreamConnection extends DataConnection{
      */
     @Override
     public DataSet getDataSet() {
+
         DataSet set = new DataSet(this,this.getStringList());
+
+        //设置只读数据集
+        set.setOnlyRead(true);
+
         return set;
     }
 
@@ -51,13 +62,17 @@ public class InputStreamConnection extends DataConnection{
 
             BufferedReader br = new BufferedReader(new InputStreamReader(this.getInputStream(),charset));
 
-            String str = "";
+            String line = "";
 
-            while((str = br.readLine())!=null){
-                list.add(str);
+            while((line=br.readLine()) != null){
+                list.add(line);
             }
 
+            this.getInputStream().close();
             br.close();
+
+            //读取一次后将不能够再次读取
+            this.setSupportRead(false);
 
         }catch (IOException e){
             e.printStackTrace();
