@@ -62,7 +62,7 @@
       <recent name="com.ksptooi.generaldatacore.test.dataconnect" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ParserTest_List.listToString">
+  <component name="RunManager" selected="JUnit.InputStreamConnect_Unit.Test">
     <configuration name="DataConnectUnitTest.FileDataConnectionUnit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -114,6 +114,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InputStreamConnect_Unit.Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GeneralDataCore.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ksptooi.generaldatacore.test.dataconnect.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ksptooi.generaldatacore.test.dataconnect" />
+      <option name="MAIN_CLASS_NAME" value="com.ksptooi.generaldatacore.test.dataconnect.InputStreamConnect_Unit" />
+      <option name="METHOD_NAME" value="Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ParserTest_List.listToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GeneralDataCore.test" />
       <extension name="coverage">
@@ -132,6 +148,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InputStreamConnect_Unit.Test" />
         <item itemvalue="JUnit.ParserTest_List.listToString" />
         <item itemvalue="JUnit.DataConnect_Collection.FileDataConnectionUnit" />
         <item itemvalue="JUnit.DataConnect_String.FileDataConnectionUnit" />
@@ -151,7 +168,7 @@
       <updated>1598756402361</updated>
       <workItem from="1598756407360" duration="45000" />
       <workItem from="1598756472071" duration="182000" />
-      <workItem from="1598756675631" duration="8258000" />
+      <workItem from="1598756675631" duration="10902000" />
     </task>
     <servers />
   </component>
@@ -170,10 +187,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1598761134320">
+    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1598767796767">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1598761134320" />
+    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1598767796767" />
     <state x="774" y="376" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1598763369063">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -186,22 +203,22 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="771" y="294" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1598756646721" />
-    <state width="1815" height="295" key="GridCell.Tab.0.bottom" timestamp="1598765850220">
+    <state width="1815" height="177" key="GridCell.Tab.0.bottom" timestamp="1598768811871">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598765850220" />
-    <state width="1815" height="295" key="GridCell.Tab.0.center" timestamp="1598765850220">
+    <state width="1815" height="177" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
+    <state width="1815" height="177" key="GridCell.Tab.0.center" timestamp="1598768811871">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598765850220" />
-    <state width="1815" height="295" key="GridCell.Tab.0.left" timestamp="1598765850220">
+    <state width="1815" height="177" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
+    <state width="1815" height="177" key="GridCell.Tab.0.left" timestamp="1598768811870">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598765850220" />
-    <state width="1815" height="295" key="GridCell.Tab.0.right" timestamp="1598765850220">
+    <state width="1815" height="177" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811870" />
+    <state width="1815" height="177" key="GridCell.Tab.0.right" timestamp="1598768811871">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598765850220" />
+    <state width="1815" height="177" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
     <state width="1815" height="364" key="GridCell.Tab.1.bottom" timestamp="1598763383736">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -226,24 +243,5 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="647" y="193" width="670" height="676" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598759554679" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ksptooi/generaldatacore/DataCore.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ksptooi/generaldatacore/entity/data/DataSet.java</url>
-          <line>97</line>
-          <properties class="com.ksptooi.generaldatacore.entity.data.DataSet" method="setVal">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

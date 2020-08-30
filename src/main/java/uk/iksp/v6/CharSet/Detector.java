@@ -9,7 +9,7 @@ import info.monitorenter.cpdetector.io.JChardetFacade;
 public class Detector {
 
 	
-	public String detector(File file){
+	public static String detector(File file){
 		
 		
 		CodepageDetectorProxy cdp=CodepageDetectorProxy.getInstance();

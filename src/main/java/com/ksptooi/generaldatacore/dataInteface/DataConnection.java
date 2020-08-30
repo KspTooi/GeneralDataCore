@@ -3,6 +3,7 @@ package com.ksptooi.generaldatacore.dataInteface;
 import com.ksptooi.generaldatacore.entity.data.DataSet;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Array;
@@ -36,7 +37,7 @@ public abstract class DataConnection {
     /**
      * 从[任意数据源]获取到DataSet实例
      */
-    public abstract DataSet getDataMap();
+    public abstract DataSet getDataSet();
 
 
     /**
@@ -44,7 +45,7 @@ public abstract class DataConnection {
      * @param dataSet 数据集
      * @return 成功返回true
      */
-    public abstract boolean setDataMap(DataSet dataSet);
+    public abstract boolean setDataSet(DataSet dataSet);
 
     /**
      * 直接从数据源获取字符串格式的数据

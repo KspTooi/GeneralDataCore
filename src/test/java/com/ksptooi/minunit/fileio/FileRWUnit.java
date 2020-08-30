@@ -3,11 +3,7 @@ package com.ksptooi.minunit.fileio;
 import com.ksptooi.generaldatacore.dataInteface.DataConnection;
 import com.ksptooi.generaldatacore.dataInteface.FileDataConnection;
 import org.junit.Test;
-import com.ksptooi.generaldatacore.DataCore;
 import com.ksptooi.generaldatacore.entity.data.DataSet;
-
-import java.io.*;
-import java.util.ArrayList;
 
 public class FileRWUnit {
 	
@@ -21,7 +17,7 @@ public class FileRWUnit {
 
 		DataConnection dc = new FileDataConnection(null);
 
-		DataSet dataMap = dc.getDataMap();
+		DataSet dataMap = dc.getDataSet();
 
 		dataMap.val("");
 

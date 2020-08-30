@@ -18,8 +18,6 @@ public class DataCore{
 	
 	protected DataCore(){}
 	
-	
-	
 	/**
 	 * 获取数据对象
 	 */

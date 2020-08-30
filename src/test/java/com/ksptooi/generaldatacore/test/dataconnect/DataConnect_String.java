@@ -7,8 +7,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class DataConnect_String {
@@ -27,7 +25,7 @@ public class DataConnect_String {
 
         DataConnection connection = new FileDataConnection(file.toPath());
 
-        DataSet dataMap = connection.getDataMap().setAutomatic(true);
+        DataSet dataMap = connection.getDataSet().setAutomatic(true);
 
         dataMap.val("key1","helloworld");
 

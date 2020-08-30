@@ -17,18 +17,18 @@ public class FileDataConnection extends DataConnection {
     }
 
     @Override
-    public DataSet getDataMap() {
+    public DataSet getDataSet() {
         /*ArrayList<String> allFileLine = (ArrayList<String>) Files.readAllLines(this.getPath());*/
         DataSet dm = new DataSet(this,this.getStringList());
         return dm;
     }
 
     @Override
-    public boolean setDataMap(DataSet dataSet) {
+    public boolean setDataSet(DataSet dataSet) {
 
         try {
 
-            Files.write(this.getPath(), dataSet.string().getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
+            Files.write(this.getPath(), dataSet.toString().getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
             return true;
 
         } catch (IOException e) {

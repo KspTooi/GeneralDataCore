@@ -47,7 +47,7 @@ public class DataConnect_Collection {
         stringList.add("≤‚ ‘4");
 
 
-        DataSet data = connection.getDataMap().setAutomatic(true);
+        DataSet data = connection.getDataSet().setAutomatic(true);
 
         data.val("key8",stringList);
 

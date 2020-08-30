@@ -38,7 +38,6 @@ public class DataSet {
 	 * 重新从文件读取数据
 	 */
 	public void read() {
-
 		this.dataStringCache = dataConnection.getStringList();
 	}
 	
@@ -46,7 +45,7 @@ public class DataSet {
 	 * 写数据到文件
 	 */
 	public void write() {
-		this.dataConnection.setDataMap(this);
+		this.dataConnection.setDataSet(this);
 	}
 	
 	
@@ -54,7 +53,8 @@ public class DataSet {
 	/**
 	 * 获取所有内容的字符串
 	 */
-	public String string() {
+	@Override
+	public String toString() {
 		return ListParser.string(this.dataStringCache);
 	}
 	
@@ -123,15 +123,23 @@ public class DataSet {
 	public boolean setVal(String key,Object object) {
 		return this.setVal(key, object.toString());
 	}
+
+	/**
+	 * 存入字符串集合
+	 */
 	public boolean setVal(String key,ArrayList<String> object) {
-		return this.setVal(key,ListParser.string(object));
+		return this.setVal(key,KVParser.listToString(object));
+	}
+
+	//存入字符串集合
+	public boolean val(String key,ArrayList<String> object) {
+		return this.setVal(key,KVParser.listToString(object));
 	}
 
 	public boolean val(String key,Object object){
 		return this.setVal(key,object);
 	}
 
-	
 	public Integer getInt(String k) {
 		return Type.toInt(this.getVal(k));
 	}
@@ -146,6 +154,14 @@ public class DataSet {
 	
 	public Boolean getBoolean(String k) {
 		return Type.toBoolean(this.getVal(k));
+	}
+
+	/**
+	 * 取出字符串集合
+	 */
+	public ArrayList<String> getList(String k){
+		String val = this.getVal(k);
+		return KVParser.stringToList(val);
 	}
 
 
