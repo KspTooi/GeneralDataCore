@@ -2,7 +2,6 @@ package com.ksptooi.generaldatacore.common;
 
 public class Type {
 	
-	
 
 	public static Integer toInt(String s) {
 		

@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class ListParser {
 
 	
-	
-	
+
 	/**
 	 * ½«list×ªÎª×Ö·û´®
 	 */
@@ -64,8 +63,7 @@ public class ListParser {
 				
 			}
 			
-			
-			
+
 			
 		}catch(NullPointerException npe) {
 			npe.printStackTrace();

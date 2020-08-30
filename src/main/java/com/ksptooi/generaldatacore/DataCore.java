@@ -4,13 +4,10 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import com.ksptooi.generaldatacore.common.Project;
-import com.ksptooi.generaldatacore.dataInteface.FileDataInteface;
-import com.ksptooi.generaldatacore.entity.data.DataMap;
+import com.ksptooi.generaldatacore.entity.data.DataSet;
 
 
-/**
- * 单例模式 GDC
- */
+
 public class DataCore{
 
 	
@@ -21,12 +18,10 @@ public class DataCore{
 	
 	protected DataCore(){}
 	
-	
-	
 	/**
 	 * 获取数据对象
 	 */
-	public static DataMap getDataMap(Path path,boolean autoMatic) {
+/*	public static DataSet getDataMap(Path path, boolean autoMatic) {
 		
 		FileDataInteface dataInterface = FileDataInteface.getFileDataInteface(path);
 		
@@ -34,35 +29,35 @@ public class DataCore{
 			return null;
 		}
 		
-		DataMap dm = dataInterface.getDataMap();
+		DataSet dm = dataInterface.getDataMap();
 		
-		dm.setAutoMaticRead(autoMatic);
-		dm.setAutoMaticWrite(autoMatic);
+		dm.setAutomaticRead(autoMatic);
+		dm.setAutomaticWrite(autoMatic);
 		
 		return dm;
 		
-	}
+	}*/
 	
-	public static DataMap getDataMap(Path path) {
+/*	public static DataSet getDataMap(Path path) {
 		return getDataMap(path,false);
 	}
 	
-	public static DataMap getDataMap(String filePath) {
+	public static DataSet getDataMap(String filePath) {
 		return getDataMap(Paths.get(filePath),false);		
 	}
 	
-	public static DataMap getDataMap(File file) {
+	public static DataSet getDataMap(File file) {
 		return getDataMap(file.toPath(),false);
 	}
 	
 	
-	public static DataMap getDataMap(String filePath,boolean automatic) {
+	public static DataSet getDataMap(String filePath, boolean automatic) {
 		return getDataMap(Paths.get(filePath),automatic);		
-	}
+	}*/
 	
-	public static DataMap getDataMap(File file,boolean automatic) {
+/*	public static DataSet getDataMap(File file, boolean automatic) {
 		return getDataMap(file.toPath(),automatic);
-	}
+	}*/
 
 
 	

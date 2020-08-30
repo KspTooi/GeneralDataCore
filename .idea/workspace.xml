@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d2a3245-1abf-4ca4-afd5-5b65df4e3c0d" name="Default Changelist" comment="" />
+    <list default="true" id="0feecb00-9123-4379-86c6-1063e44ef708" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,29 +30,24 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1fTgbEb93uQyrbzp2y5XvqPoytr" />
+  <component name="ProjectId" id="1gnhk2LRELIerx71A7k48VCR4yk" />
   <component name="ProjectViewState">
     <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -60,23 +55,120 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ksptooi.generaldatacore.test.dataconnect" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.InputStreamConnect_Unit.Test">
+    <configuration name="DataConnectUnitTest.FileDataConnectionUnit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.ksptooi.generaldatacore.test.dataconnect.DataConnectUnitTest.FileDataConnectionUnit&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DataConnect_Collection.FileDataConnectionUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GeneralDataCore.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ksptooi.generaldatacore.test.dataconnect.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ksptooi.generaldatacore.test.dataconnect" />
+      <option name="MAIN_CLASS_NAME" value="com.ksptooi.generaldatacore.test.dataconnect.DataConnect_Collection" />
+      <option name="METHOD_NAME" value="FileDataConnectionUnit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataConnect_String.FileDataConnectionUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GeneralDataCore.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ksptooi.generaldatacore.test.dataconnect.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ksptooi.generaldatacore.test.dataconnect" />
+      <option name="MAIN_CLASS_NAME" value="com.ksptooi.generaldatacore.test.dataconnect.DataConnect_String" />
+      <option name="METHOD_NAME" value="FileDataConnectionUnit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputStreamConnect_Unit.Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GeneralDataCore.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ksptooi.generaldatacore.test.dataconnect.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ksptooi.generaldatacore.test.dataconnect" />
+      <option name="MAIN_CLASS_NAME" value="com.ksptooi.generaldatacore.test.dataconnect.InputStreamConnect_Unit" />
+      <option name="METHOD_NAME" value="Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest_List.listToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GeneralDataCore.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ksptooi.minunit.parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ksptooi.minunit.parser" />
+      <option name="MAIN_CLASS_NAME" value="com.ksptooi.minunit.parser.ParserTest_List" />
+      <option name="METHOD_NAME" value="listToString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.InputStreamConnect_Unit.Test" />
+        <item itemvalue="JUnit.ParserTest_List.listToString" />
+        <item itemvalue="JUnit.DataConnect_Collection.FileDataConnectionUnit" />
+        <item itemvalue="JUnit.DataConnect_String.FileDataConnectionUnit" />
+        <item itemvalue="Gradle.DataConnectUnitTest.FileDataConnectionUnit" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1d2a3245-1abf-4ca4-afd5-5b65df4e3c0d" name="Default Changelist" comment="" />
-      <created>1596247565949</created>
+      <changelist id="0feecb00-9123-4379-86c6-1063e44ef708" name="Default Changelist" comment="" />
+      <created>1598756402361</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1596247565949</updated>
-      <workItem from="1596247570601" duration="1693000" />
+      <updated>1598756402361</updated>
+      <workItem from="1598756407360" duration="45000" />
+      <workItem from="1598756472071" duration="182000" />
+      <workItem from="1598756675631" duration="10902000" />
     </task>
     <servers />
   </component>
@@ -93,36 +185,63 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="474" y="114" key="#Project_Structure" timestamp="1596248006974">
-      <screen x="69" y="0" width="1851" height="1080" />
-    </state>
-    <state x="474" y="114" key="#Project_Structure/69.0.1851.1080@69.0.1851.1080" timestamp="1596248006974" />
-    <state x="721" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598754970274">
+    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1598767796767">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="721" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598754970274" />
-    <state width="1815" height="241" key="GridCell.Tab.0.bottom" timestamp="1598754970518">
+    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1598767796767" />
+    <state x="774" y="376" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1598763369063">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="241" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598754970518" />
-    <state width="1815" height="241" key="GridCell.Tab.0.center" timestamp="1598754970518">
+    <state x="774" y="376" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598763369063" />
+    <state x="721" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598760169237">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="241" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598754970518" />
-    <state width="1815" height="241" key="GridCell.Tab.0.left" timestamp="1598754970518">
+    <state x="721" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598760169237" />
+    <state x="771" y="294" key="FileChooserDialogImpl" timestamp="1598756646721">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="241" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598754970518" />
-    <state width="1815" height="241" key="GridCell.Tab.0.right" timestamp="1598754970518">
+    <state x="771" y="294" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1598756646721" />
+    <state width="1815" height="177" key="GridCell.Tab.0.bottom" timestamp="1598768811871">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="241" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598754970518" />
-    <state x="495" y="184" key="SettingsEditor" timestamp="1596248654805">
-      <screen x="69" y="0" width="1851" height="1080" />
+    <state width="1815" height="177" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
+    <state width="1815" height="177" key="GridCell.Tab.0.center" timestamp="1598768811871">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="495" y="184" key="SettingsEditor/69.0.1851.1080@69.0.1851.1080" timestamp="1596248654805" />
+    <state width="1815" height="177" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
+    <state width="1815" height="177" key="GridCell.Tab.0.left" timestamp="1598768811870">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="177" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811870" />
+    <state width="1815" height="177" key="GridCell.Tab.0.right" timestamp="1598768811871">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="177" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
+    <state width="1815" height="364" key="GridCell.Tab.1.bottom" timestamp="1598763383736">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
+    <state width="1815" height="364" key="GridCell.Tab.1.center" timestamp="1598763383736">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
+    <state width="1815" height="364" key="GridCell.Tab.1.left" timestamp="1598763383736">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
+    <state width="1815" height="364" key="GridCell.Tab.1.right" timestamp="1598763383736">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="364" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
+    <state x="492" y="184" key="SettingsEditor" timestamp="1598761578947">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="492" y="184" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1598761578947" />
+    <state x="647" y="193" width="670" height="676" key="search.everywhere.popup" timestamp="1598759554679">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="647" y="193" width="670" height="676" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598759554679" />
   </component>
 </project>

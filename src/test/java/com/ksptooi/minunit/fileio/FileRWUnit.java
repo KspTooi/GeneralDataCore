@@ -1,10 +1,9 @@
 package com.ksptooi.minunit.fileio;
 
-import java.math.BigInteger;
-import java.nio.file.Paths;
+import com.ksptooi.generaldatacore.dataInteface.DataConnection;
+import com.ksptooi.generaldatacore.dataInteface.FileDataConnection;
 import org.junit.Test;
-import com.ksptooi.generaldatacore.DataCore;
-import com.ksptooi.generaldatacore.entity.data.DataMap;
+import com.ksptooi.generaldatacore.entity.data.DataSet;
 
 public class FileRWUnit {
 	
@@ -13,11 +12,20 @@ public class FileRWUnit {
 //	@Test
 	public void FileRWUnit() {
 
-		
-		
-		
+
+		//new BufferedReader(new InputStreamReader(null));
+
+		DataConnection dc = new FileDataConnection(null);
+
+		DataSet dataMap = dc.getDataSet();
+
+		dataMap.val("");
+
 //		System.out.println(dm.get("key5")+dm.size());
-		
+
+
+
+
 	}
 	
 	
@@ -25,7 +33,8 @@ public class FileRWUnit {
 	public void FileUnit() {
 		
 		
-		 DataMap dm = DataCore.getDataMap("C:asmc_core/asmc.conf",true);
+/*		 DataSet dm = DataCore.getDataMap("C:asmc_core/asmc.conf",true);*/
+		 DataSet dm = null;
 		  
 		 if(dm == null) {
 			 System.out.println("文件不存在");
