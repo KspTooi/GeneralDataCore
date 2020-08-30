@@ -53,7 +53,7 @@ public class ListParser {
 				flag++;
 				key = KVParser.key(item);
 				
-				if(item == null || item.equals("")) {
+				if(item == null ||key == null|| item.equals("")) {
 					continue;
 				}
 				

@@ -20,6 +20,10 @@ public abstract class DataConnection {
     private File file = null;
     private Path path = null;
 
+    private boolean supportRead = true;
+    private boolean supportWrite = true;
+
+
 
     public DataConnection(InputStream is, OutputStream os){
         this.inputStream =is;
@@ -53,7 +57,8 @@ public abstract class DataConnection {
     public abstract ArrayList<String> getStringList();
 
 
-    public InputStream getInputStream() {
+    public InputStream getInputStream()  {
+
 
         if(this.inputStream == null){
             throw new RuntimeException("cant get -- inputStream is Null ");
@@ -105,4 +110,19 @@ public abstract class DataConnection {
         this.path = path;
     }
 
+    public boolean isSupportRead() {
+        return supportRead;
+    }
+
+    public void setSupportRead(boolean supportRead) {
+        this.supportRead = supportRead;
+    }
+
+    public boolean isSupportWrite() {
+        return supportWrite;
+    }
+
+    public void setSupportWrite(boolean supportWrite) {
+        this.supportWrite = supportWrite;
+    }
 }

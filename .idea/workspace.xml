@@ -30,16 +30,6 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view />
-      </state>
-    </system>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -72,26 +62,7 @@
       <recent name="com.ksptooi.generaldatacore.test.dataconnect" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.InputStreamConnect_Unit.Test">
-    <configuration name="DataConnectUnitTest.FileDataConnectionUnit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.ksptooi.generaldatacore.test.dataconnect.DataConnectUnitTest.FileDataConnectionUnit&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.DataConnect_ReadUnit.Test">
     <configuration name="DataConnect_Collection.FileDataConnectionUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GeneralDataCore.test" />
       <extension name="coverage">
@@ -103,6 +74,22 @@
       <option name="PACKAGE_NAME" value="com.ksptooi.generaldatacore.test.dataconnect" />
       <option name="MAIN_CLASS_NAME" value="com.ksptooi.generaldatacore.test.dataconnect.DataConnect_Collection" />
       <option name="METHOD_NAME" value="FileDataConnectionUnit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataConnect_ReadUnit.Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GeneralDataCore.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ksptooi.generaldatacore.test.dataconnect.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ksptooi.generaldatacore.test.dataconnect" />
+      <option name="MAIN_CLASS_NAME" value="com.ksptooi.generaldatacore.test.dataconnect.DataConnect_ReadUnit" />
+      <option name="METHOD_NAME" value="Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DataConnect_ReadUnit.Test" />
         <item itemvalue="JUnit.InputStreamConnect_Unit.Test" />
         <item itemvalue="JUnit.ParserTest_List.listToString" />
         <item itemvalue="JUnit.DataConnect_Collection.FileDataConnectionUnit" />
         <item itemvalue="JUnit.DataConnect_String.FileDataConnectionUnit" />
-        <item itemvalue="Gradle.DataConnectUnitTest.FileDataConnectionUnit" />
       </list>
     </recent_temporary>
   </component>
@@ -178,7 +165,12 @@
       <updated>1598756402361</updated>
       <workItem from="1598756407360" duration="45000" />
       <workItem from="1598756472071" duration="182000" />
-      <workItem from="1598756675631" duration="11519000" />
+<<<<<<< Updated upstream
+      <workItem from="1598756675631" duration="10902000" />
+=======
+      <workItem from="1598756675631" duration="11594000" />
+      <workItem from="1598771155790" duration="5299000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -195,63 +187,80 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1598767796767">
+    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1598776248464">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1598767796767" />
-    <state x="774" y="376" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1598763369063">
+    <state x="796" y="246" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1598776248464" />
+    <state x="774" y="376" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1598771916430">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="774" y="376" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598763369063" />
+    <state x="774" y="376" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598771916430" />
     <state x="721" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598760169237">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="721" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1598760169237" />
-    <state x="771" y="294" key="FileChooserDialogImpl" timestamp="1598756646721">
+    <state width="460" height="466" key="DebuggerActiveHint" timestamp="1598774597649">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="771" y="294" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1598756646721" />
-    <state width="1815" height="177" key="GridCell.Tab.0.bottom" timestamp="1598768811871">
+    <state width="460" height="466" key="DebuggerActiveHint/62.0.1858.1080@62.0.1858.1080" timestamp="1598774597649" />
+    <state x="771" y="294" key="FileChooserDialogImpl" timestamp="1598769542993">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="177" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
-    <state width="1815" height="177" key="GridCell.Tab.0.center" timestamp="1598768811871">
+    <state x="771" y="294" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1598769542993" />
+    <state width="1815" height="275" key="GridCell.Tab.0.bottom" timestamp="1598776407627">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="177" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
-    <state width="1815" height="177" key="GridCell.Tab.0.left" timestamp="1598768811870">
+    <state width="1815" height="275" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598776407627" />
+    <state width="1815" height="275" key="GridCell.Tab.0.center" timestamp="1598776407627">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="177" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811870" />
-    <state width="1815" height="177" key="GridCell.Tab.0.right" timestamp="1598768811871">
+    <state width="1815" height="275" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598776407627" />
+    <state width="1815" height="275" key="GridCell.Tab.0.left" timestamp="1598776407627">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="177" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598768811871" />
-    <state width="1815" height="364" key="GridCell.Tab.1.bottom" timestamp="1598763383736">
+    <state width="1815" height="275" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598776407627" />
+    <state width="1815" height="275" key="GridCell.Tab.0.right" timestamp="1598776407627">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="364" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
-    <state width="1815" height="364" key="GridCell.Tab.1.center" timestamp="1598763383736">
+    <state width="1815" height="275" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598776407627" />
+    <state width="1815" height="318" key="GridCell.Tab.1.bottom" timestamp="1598775494936">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="364" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
-    <state width="1815" height="364" key="GridCell.Tab.1.left" timestamp="1598763383736">
+    <state width="1815" height="318" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1598775494936" />
+    <state width="1815" height="318" key="GridCell.Tab.1.center" timestamp="1598775494936">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="364" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
-    <state width="1815" height="364" key="GridCell.Tab.1.right" timestamp="1598763383736">
+    <state width="1815" height="318" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1598775494936" />
+    <state width="1815" height="318" key="GridCell.Tab.1.left" timestamp="1598775494936">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="364" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598763383736" />
+    <state width="1815" height="318" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1598775494936" />
+    <state width="1815" height="318" key="GridCell.Tab.1.right" timestamp="1598775494936">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="318" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1598775494936" />
     <state x="492" y="184" key="SettingsEditor" timestamp="1598761578947">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="492" y="184" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1598761578947" />
+    <state x="154" y="92" width="1674" height="896" key="dock-window-1" timestamp="1598771247447">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="154" y="92" width="1674" height="896" key="dock-window-1/62.0.1858.1080@62.0.1858.1080" timestamp="1598771247447" />
     <state x="647" y="193" width="670" height="676" key="search.everywhere.popup" timestamp="1598759554679">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="647" y="193" width="670" height="676" key="search.everywhere.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1598759554679" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo typeName="java.lang.String" fieldName="value" />
+        <PinnedItemInfo typeName="java.lang.String" fieldName="hash" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

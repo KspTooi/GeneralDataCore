@@ -7,10 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import uk.iksp.v6.CharSet.Detector;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -33,11 +30,33 @@ public class InputStreamConnect_Unit {
     }
 
     @Test
-    public void Test(){
+    public void Test() throws IOException {
 
-        DataSet dataMap = connection.getDataSet().setAutomatic(true);
+/*        DataSet dataMap = connection.getDataSet().setAutomatic(true);
 
-        System.out.println(dataMap.toString());
+        System.out.println(dataMap.toString());*/
+
+
+        File file = Paths.get("C://127.txt").toFile();
+        InputStream is = Files.newInputStream(file.toPath());
+
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(is,"utf-8"));
+
+
+        String line = null;
+
+        System.out.println("第一次读:"+is.available());
+        while((line = br.readLine()) != null){
+            System.out.println(line);
+        }
+
+        BufferedReader br1 = new BufferedReader(new InputStreamReader(is,"utf-8"));
+
+        System.out.println("第二次读:"+is.available());
+        while((line=br1.readLine()) != null){
+            System.out.println(line);
+        }
 
     }
 

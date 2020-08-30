@@ -20,6 +20,9 @@ public class DataSet {
 	//自动写入文件
 	private boolean automaticWrite = false;
 
+	//只读DataSet
+	private boolean onlyRead = false;
+
 
 	public DataSet(DataConnection data, ArrayList<String> al){
 		this.dataConnection = data;
@@ -38,6 +41,15 @@ public class DataSet {
 	 * 重新从文件读取数据
 	 */
 	public void read() {
+
+		//System.out.println(dataConnection.isSupportRead());
+
+		//判断数据连接是否还支持读取
+		if(!dataConnection.isSupportRead()){
+			System.out.println("dataConnection is not Support Read again");
+			return;
+		}
+
 		this.dataStringCache = dataConnection.getStringList();
 	}
 	
@@ -45,6 +57,18 @@ public class DataSet {
 	 * 写数据到文件
 	 */
 	public void write() {
+
+		//当前DataSet是否为只读
+		if(onlyRead == true){
+			throw new RuntimeException("this Dataset is Only-Read ");
+		}
+
+		//判断数据连接是否还支持读取
+		if(!dataConnection.isSupportWrite()){
+			System.out.println("dataConnection is not Support Read again");
+			return;
+		}
+
 		this.dataConnection.setDataSet(this);
 	}
 	
@@ -75,9 +99,7 @@ public class DataSet {
 	public String getVal(String inputKey){
 
 		//自动读取
-		if(automaticRead) {
-			this.read();
-		}
+		this.update("read");
 		
 		int line = this.indexOf(inputKey);
 		
@@ -96,6 +118,11 @@ public class DataSet {
 	 * 根据key设置value
 	 */
 	public boolean setVal(String key,String value) {
+
+		//当前DataSet是否为只读
+		if(onlyRead == true){
+			throw new RuntimeException("cant Write,this Dataset is Only-Read ");
+		}
 
 		//更新数据
 		update("read");
@@ -181,6 +208,14 @@ public class DataSet {
 		return this;
 	}
 
+	public boolean isOnlyRead() {
+		return onlyRead;
+	}
+
+	public void setOnlyRead(boolean onlyRead) {
+		this.onlyRead = onlyRead;
+	}
+
 	//更新数据
 	private void update(String type){
 
@@ -195,7 +230,12 @@ public class DataSet {
 			return;
 		}
 
-		throw new RuntimeException("the type does not match ,correct type is 'read' and 'write' ");
+		//判断类型错误
+		if(!type.equalsIgnoreCase("read") && !type.equalsIgnoreCase("write")){
+			throw new RuntimeException("the type does not match ,correct type is 'read' and 'write' ");
+		}
+
+
 	}
 
 }
