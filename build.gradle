@@ -14,8 +14,7 @@ plugins {
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    
-    
+
 
     mavenCentral()
     jcenter()
@@ -32,17 +31,15 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
-	
-	compile files('Lib/cpdetector_1.0.10.jar')
-	
-	compile files('Lib/chardet-1.0.jar')
-	
-	compile files('Lib/jargs-1.0.jar')
 
+
+	compile files('Lib/cpdetector_1.0.10.jar')
+	compile files('Lib/chardet-1.0.jar')
+	compile files('Lib/jargs-1.0.jar')
 	compile files('Lib/antlr-2.7.4.jar')
 	
 	// https://mvnrepository.com/artifact/log4j/log4j
-	compile group: 'log4j', name: 'log4j', version: '1.2.17'
+	//compile group: 'log4j', name: 'log4j', version: '1.2.17'
 	
 }
 

@@ -30,6 +30,16 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -168,7 +178,7 @@
       <updated>1598756402361</updated>
       <workItem from="1598756407360" duration="45000" />
       <workItem from="1598756472071" duration="182000" />
-      <workItem from="1598756675631" duration="10902000" />
+      <workItem from="1598756675631" duration="11519000" />
     </task>
     <servers />
   </component>
